@@ -1,4 +1,4 @@
 # mirmindr
 Homework reminder app for Mirman School students.
 
-Tepper was here
+Log in with Gmail, write and view reminders you set for yourself.
