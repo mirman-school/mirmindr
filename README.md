@@ -17,3 +17,9 @@ Homework reminder app for Mirman School students.
 <li>Arthur Delot Vilain</li>
 <li>Mason Shurman</li>
 </ol>
+
+## Features
+* Calendar integration
+* Alert notifications (Custom time)
+* Chrome extension
+* Rewards for completion (Pomorodo method)
