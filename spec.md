@@ -1,0 +1,3 @@
+# Mirmindr Spec
+
+## `Task` Object
