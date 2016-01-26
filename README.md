@@ -1,25 +1,41 @@
-# mirmindr
+# MirMindr <img src="http://www.k12academics.com/sites/default/files/Mirmanwallgatesweb.jpg" width="100">
 Homework reminder app for Mirman School students.
 
-<h2>Team</h2>
-<ol>
-<li>Aiden Tepper</li>
-<li>Adam Sina</li>
-<li>Kyle Oppenheim</li>
-<li>Walker Uhls</li>
-<li>Amaan Irfan</li>
-<li>Corey Marley</li>
-<li>Miles Rovenger</li>
-<li>Siji Smolev</li>
-<li>Michael Taggart</li>
-<li>Finneas Weeks Manjarres</li>
-<li>Benjamin Volokh</li>
-<li>Arthur Delot Vilain</li>
-<li>Mason Shurman</li>
-</ol>
+## Table of Contents
+- [MirMindr  ](#mirmindr-img-srchttpwwwk12academicscomsitesdefaultfilesmirmanwallgateswebjpg-width100)
+	- [Teams](#teams)
+	- [Project Overview](#project-overview)
+		- [Features](#features)
+		- [Value Proposition](#value-proposition)
 
-## Features
+## Teams
+**Dox**:
+1. Benjamin Volokh
+2. Miles Rovenger
+
+**Mockup**:
+1. Finn Weeks Manjarres
+2. Amaan Irfan
+
+~~Design~~:
+1. Kyle Oppenheim
+2. Corey Marley
+3. Mason Shurman
+
+**Logic**:
+1. Aiden Tepper
+2. Siji Smolev
+3. Arthur Delot-Vilain
+
+**Supreme Inferior Centimeter Ruler**:
+* Michael Taggart
+
+## Project Overview
+### Features
 * Calendar integration
 * Alert notifications (Custom time)
 * Chrome extension
 * Rewards for completion (Pomorodo method)
+
+### Value Proposition
+*For Mirman students who need a way to manage their homework loads, the MirMindr Google Chrome extension is the perfect tool. Unlike Google Keep, MirMindr is made specifically for Mirman students, ergo enhancing the process.*
