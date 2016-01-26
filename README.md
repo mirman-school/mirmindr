@@ -2,11 +2,15 @@
 Homework reminder app for Mirman School students.
 
 ## Table of Contents
-- [MirMindr  ](#mirmindr-img-srchttpwwwk12academicscomsitesdefaultfilesmirmanwallgateswebjpg-width100)
-	- [Teams](#teams)
-	- [Project Overview](#project-overview)
-		- [Features](#features)
-		- [Value Proposition](#value-proposition)
+<!-- TOC depthFrom:2 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 -->
+
+- [Table of Contents](#table-of-contents)
+- [Teams](#teams)
+- [Project Overview](#project-overview)
+	- [Features](#features)
+	- [Value Proposition](#value-proposition)
+
+<!-- /TOC -->
 
 ## Teams
 **Dox**:
@@ -27,7 +31,7 @@ Homework reminder app for Mirman School students.
 2. Siji Smolev
 3. Arthur Delot-Vilain
 
-**Supreme Inferior Centimeter Ruler**:
+**Project Manager**:
 * Michael Taggart
 
 ## Project Overview
