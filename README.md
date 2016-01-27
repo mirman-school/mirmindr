@@ -72,4 +72,4 @@ SOFTWARE.*
 To download the MirMindr Extension, simply go to the Chrome Web Store (https://chrome.google.com/webstore/category/extensions) and type into the search bar "MirMindr". Click on the download button and then wait until the extension has been downloaded.
 
 #### Access
-Once the MirMindr Extension has been downloaded, 
+Once the MirMindr Extension has been downloaded, you can access it on the Google Toolbar.
