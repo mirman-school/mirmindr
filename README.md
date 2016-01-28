@@ -10,18 +10,6 @@ Homework reminder app for Mirman School students.
 		- [Features](#features)
 		- [Value Proposition](#value-proposition)
 	- [Docs](#docs)
-=======
-<!-- TOC depthFrom:2 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 -->
-
-- [Table of Contents](#table-of-contents)
-- [Teams](#teams)
-- [Project Overview](#project-overview)
-	- [Features](#features)
-	- [Value Proposition](#value-proposition)
-
-<!-- /TOC -->
->>>>>>> 68d355417cdcec657077d0fefc658f990f2ee93e
-
 ## Teams
 **Dox**:
 1. Benjamin Volokh
