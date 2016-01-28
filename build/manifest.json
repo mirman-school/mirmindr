@@ -1,14 +1,11 @@
 {
   "manifest_version": 2,
-  “default_locale”: “en”,
-
-  "name": “Mirmindr”,
+  "name": "Mirmindr",
   "version": "1.0",
-  "description": “Mirmindr extension”,
+  "description": "Mirmindr extension",
 
   "browser_action": {
-    "default_icon": "icon.png",
-    “default_title”: “Mirmindr”,
-    "default_popup": “index.html"
+    "default_title": "Mirmindr",
+    "default_popup": "mirmindr.html"
   }
 }
