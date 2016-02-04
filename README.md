@@ -13,7 +13,7 @@ Homework reminder app for Mirman School students.
 		- [Extension Usage](#extension-usage)
 
 ## Etymology of the Trade Name
-The term *MirMindr* is the name given to the product that the following writing gives instructions on the usage of. The word derives its name from a hybrid of 'Mirman' and 'reminder'. This portmanteau word is both punny and misspelled. Before you send a complaint to our company (which is perfectly understandable, pendaticness is a virtue), please consider the popular company *Lyft* and this information from the *Chicago Turbine*: A misspelled namedoes the following: helps with recall; sets you apart; gets people talking; works as an onomatopoeia. The rest of the information in this manual is not from the *Chicago Turbine*.
+The term *MirMindr* is the name given to the product that the following writing gives instructions on the usage of. The word derives its name from a hybrid of 'Mirman' and 'reminder'. This portmanteau word is both punny and misspelled. Before you send a complaint to our company (which is perfectly understandable, pendaticness is a virtue), please consider the popular company *Lyft* and this information from the *Chicago Turbine*: A misspelled name does the following: helps with recall; sets you apart; gets people talking; works as an onomatopoeia. The rest of the information in this manual is not from the *Chicago Turbine*.
 
 ## Teams
 **Dox**:
