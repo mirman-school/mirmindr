@@ -4,10 +4,10 @@ body(ng-app="mirmindr")
 div(class="header")
   h1(class="title") Mirmindr
   
-div(layout="row", ng-contoller="taskCtrl")
+div(layout="row", ng-controller="tasksCtrl")
   div(layout="column")
     div(id-"loading" ng-if="!authenticated")
-      span Loading your info...
+      span {{loginMessage}}
       md-progress-circular(md-mode="indeterminate")
     div(id="task-list" ng-if="authenticated")
       p
