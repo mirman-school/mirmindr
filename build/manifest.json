@@ -6,6 +6,7 @@
 
   "browser_action": {
     "default_title": "Mirmindr",
-    "default_popup": "mirmindr.html"
+    "default_popup": "mirmindr.html",
+    "default_icon": "mirmindr-icon.png"
   }
 }

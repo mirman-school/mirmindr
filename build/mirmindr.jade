@@ -6,7 +6,9 @@ div(class="header")
   
 div(layout="row", ng-contoller="taskCtrl")
   div(layout="column")
-    md-progress-circular(md-mode="indeterminate" ng-if="!authenticated")
+    div(id-"loading" ng-if="!authenticated")
+      span Loading your info...
+      md-progress-circular(md-mode="indeterminate")
     div(id="task-list" ng-if="authenticated")
       p
         i tasks go here
