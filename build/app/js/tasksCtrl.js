@@ -1,12 +1,10 @@
 angular.module("mirmindr")
 .controller("tasksCtrl",["$scope","$firebaseObject",function($scope,$firebaseObject){
-  chrome.identity.getProfileUserInfo(function(token){
-    console.log(token);
-  });
+  var ref = new Firebase("https://mirmindr.firebaseio.com");
   $scope.loginMessage = "Logging in...";
   $scope.authenticated = false;
-  var ref = new Firebase("https://mirmindr.firebaseio.com");
-  // ref.authWithCustomToken("google", function(error, authData) {
+  $scope.user = {};
+  // ref.authWithOAuthPopup("google", function(error, authData) {
   //   if (error) {
   //     console.log("Login Failed!", error);
   //   } else {
@@ -14,4 +12,10 @@ angular.module("mirmindr")
   //     $scope.authenticated = true;
   //   }
   // });
+
+  $scope.login = function(form) {
+    if (form.$valid) {
+      console.log($scope.user.email);
+    }
+  }
 }]);

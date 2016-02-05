@@ -6,9 +6,19 @@ div(class="header")
   
 div(layout="row", ng-controller="tasksCtrl")
   div(layout="column")
-    div(id-"loading" ng-if="!authenticated")
-      span {{loginMessage}}
-      md-progress-circular(md-mode="indeterminate")
+    div(id-"login" ng-if="!authenticated")
+      form(id="login-form" name="loginForm" ng-submit="login(loginForm)")
+        h3 Login
+        md-input-container
+          label Email
+          input(type="email" ng-model="user.email")
+        md-input-container
+          label Password
+          input(type="password" ng-model="user.password")        
+        br
+        md-button(type="submit" class="md-raised confirm") Submit 
+      //- span {{loginMessage}}
+      //- md-progress-circular(md-mode="indeterminate")
     div(id="task-list" ng-if="authenticated")
       p
         i tasks go here
