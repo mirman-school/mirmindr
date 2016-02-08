@@ -1,13 +1,32 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto|Oswald)
-$background-color: #0a186f
+$background-color: #f0f4f5
+$header-color: #173345
 body
   background-color: $background-color
+  font-family: Roboto,sans-serif
+  font-size: 16px
   color: white
   width: 400px
 
-h1,h2,h3
-  font-family: Oswald,sans-serif
+h1,h2
+  color: $background-color
+  font-weight: 300
+
+.header
+  background-color: $header-color
+  padding: 3px 3px 3px 10px
 
 .subtitle
   font-style: italic
   font-size: 15px
+
+.confirm
+  background-color: #57a265
+
+#new-task
+  background-image: url("../img/edit.png")
+  background-repeat: no-repeat
+  background-position: center center
+  position: absolute
+  top: 85%
+  right: 0%
