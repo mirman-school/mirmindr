@@ -13,5 +13,5 @@ div(layout="row")
         md-button(type="submit" class="md-raised md-primary confirm" value="Log In") Log In
         a(href="#/signup") Sign Up
     div(id="task-list" ng-show="authenticated")
-      p
-        i tasks go here
+      div(class="task" ng-repeat="task in data.tasks")
+      md-button(id="new-task" class="md-fab md-button md-primary" aria-label="New task" ng-click="newTask")

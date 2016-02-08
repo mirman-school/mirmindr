@@ -8,9 +8,9 @@ div(layout="row")
           input(type="email" name="email" ng-model="user.email")
         md-input-container
           label Password
-          input(name="password" type="password" ng-model="user.password")
+          input(name="password" minlength="8" type="password" ng-model="user.password")
         md-input-container
-          label Password
-          input(name="password" type="password" ng-model="user.confirm")       
+          label Confirm
+          input(name="confirm" type="password" ng-model="user.confirm")       
         br
-        md-button(type="submit" class="md-raised md-primary confirm" value="Log In") Log In
+        md-button(type="submit" class="md-raised md-primary confirm" value="Sign Up") Sign Up

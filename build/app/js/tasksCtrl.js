@@ -30,10 +30,12 @@ angular.module("mirmindr")
         password: $scope.user.password
       }, function(error, authData) {
         if(error) {
-          $scope.showActionToast("Invalid username or password");
+          $scope.showActionToast(error.toString());
         } else {
-          console.log("Authenticated");
+          console.log(authData);
           $scope.authenticated = true;
+          var syncObject = new $firebaseObject(ref);
+          syncObject.$bindTo($scope,"data");
           $scope.$apply();
         }
       });

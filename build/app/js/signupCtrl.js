@@ -1,5 +1,7 @@
 angular.module("mirmindr")
-.controller("signupCtrl",function($scope,$mdToast,$mdDialog,$firebaseObject){
+.controller("signupCtrl",function($route,$location,$scope,$mdToast,$mdDialog,$firebaseObject){
+  var ref = new Firebase("https://mirmindr.firebaseio.com");
+
   $scope.user = {
     email: "",
     password: "",
@@ -18,20 +20,22 @@ angular.module("mirmindr")
   $scope.createUser = function(user) {
     ref.createUser(user,function(error, userData){
       if(error) {
-        console.log(error);
+        $scope.showActionToast(error.toString());
       } else {
         console.log(userData);
-        $scope.authenticated = true;
-        $scope.$apply();
+        $scope.showActionToast("Signed up!")
+        .then(function(){
+          $location.path("/");          
+        });
       }
     })
   };
 
   $scope.signup = function(form) {
     if(form.$valid) {
-      if($scope.user.email === $scope.user.confirm) {
-        // $scope.createUser($scope.user);
-        $scope.showActionToast("Creating!");
+      if($scope.user.password === $scope.user.confirm) {
+        $scope.createUser($scope.user);
+        // $scope.showActionToast("Creating!");
       } else {
         $scope.showActionToast("Password and confirm don't match!");
       }
