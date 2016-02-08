@@ -1,4 +1,4 @@
-# MirMindr <img src="http://www.k12academics.com/sites/default/files/Mirmanwallgatesweb.jpg" width="100">
+# MirMindr <img src="http://i.imgur.com/JPEYX5h.png" width="100">
 Homework reminder app for Mirman School students.
 
 ## Table of Contents
@@ -47,6 +47,9 @@ The term *MirMindr* is the name given to the product that the following writing 
 #### Overview
 *MirMindr* was designed in HTML, Sass, and JavaScript by Mirman students in the advanced Web Apps elective course. The code is compiled as a Google Extension. Its main features include: calendar integration, and alerting notifications based on custom time.
 ___
-### Downloading the Extension
+___
+### 1. Downloading the Extension
 To download the *MirMindr* extension, open up the Chrome browser and type in the URL bar "https://chrome.google.com/webstore/category/extensions". Once there, type in the search bar "MirMindr".
-<br><br><img src="http://i.imgur.com/ohBJy0Y.png"><br><br>Then download the first extension entry. The extension can be accessed to the right of the URL bar.<br><br><img src="http://i.imgur.com/vxb1x3E.png">
+<br><br><img src="http://i.imgur.com/ohBJy0Y.png"><br><br>Then download the first extension entry. The extension can be accessed to the right of the URL bar.<br><br><img src="http://i.imgur.com/J5I3I7m.png">
+___
+### 2. Logging in
