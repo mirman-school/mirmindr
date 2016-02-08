@@ -3,21 +3,4 @@ include ./head.jade
 body(ng-app="mirmindr")
 div(class="header")
   h1(class="title") Mirmindr
-  
-div(layout="row", ng-controller="tasksCtrl")
-  div(layout="column")
-    div(id-"login" ng-hide="authenticated")
-      form(id="login-form" name="loginForm" ng-submit="login(loginForm)")
-        h3 Login
-        md-input-container
-          label Email
-          input(type="email" name="email" ng-model="user.email")
-        md-input-container
-          label Password
-          input(name="password" type="password" ng-model="user.password")        
-        br
-        md-button(type="submit" class="md-raised md-primary confirm" value="Log In") Log In
-        a(href="signup.html") Sign Up
-    div(id="task-list" ng-show="authenticated")
-      p
-        i tasks go here
+ng-view

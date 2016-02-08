@@ -1,7 +1,6 @@
 angular.module("mirmindr")
 .controller("tasksCtrl",function($scope,$mdToast,$mdDialog,$firebaseObject){
   var ref = new Firebase("https://mirmindr.firebaseio.com");
-  $scope.loginMessage = "Logging in...";
   $scope.authenticated = false;
   $scope.user = {
     email: "",
@@ -14,18 +13,6 @@ angular.module("mirmindr")
       $scope.$apply();
     }
   });
-
-  $scope.createUser = function(user) {
-    ref.createUser(user,function(error, userData){
-      if(error) {
-        console.log(error);
-      } else {
-        console.log(userData);
-        $scope.authenticated = true;
-        $scope.$apply();
-      }
-    })
-  };
 
   $scope.showActionToast = function(msg) {
     var toast = $mdToast.simple()
@@ -43,7 +30,7 @@ angular.module("mirmindr")
         password: $scope.user.password
       }, function(error, authData) {
         if(error) {
-          $scope.showActionToast(error.code);
+          $scope.showActionToast("Invalid username or password");
         } else {
           console.log("Authenticated");
           $scope.authenticated = true;

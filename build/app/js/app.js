@@ -1,1 +1,1 @@
-angular.module("mirmindr",["ngMaterial","firebase"]);
+angular.module("mirmindr",["ngMaterial","ngRoute","firebase"]);
