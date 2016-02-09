@@ -1,11 +1,21 @@
 angular.module("mirmindr")
 .controller("tasksCtrl",function($scope,$mdToast,$mdDialog,$firebaseObject){
   var ref = new Firebase("https://mirmindr.firebaseio.com");
-  $scope.authenticated = false;
+  var authData = ref.getAuth();
+  function setUserRef(uid){
+    $scope.userRef = ref.child("users").child(uid);
+    $scope.authenticated = true;
+    var syncObject = new $firebaseObject($scope.userRef);
+    syncObject.$bindTo($scope,"data");
+  };
+  if (authData) {
+    setUserRef(authData.uid);
+  }
   $scope.user = {
     email: "",
     password: ""
   };
+  $scope.newTask = {};
   chrome.identity.getProfileUserInfo(function(data){
     if(data.email) {
       console.log("Email found");
@@ -32,13 +42,20 @@ angular.module("mirmindr")
         if(error) {
           $scope.showActionToast(error.toString());
         } else {
-          console.log(authData);
-          $scope.authenticated = true;
-          var syncObject = new $firebaseObject(ref);
-          syncObject.$bindTo($scope,"data");
+          $scope.setUserRef(authData.uid)
           $scope.$apply();
         }
       });
+    }
+  }
+
+  $scope.addTask = function(form) {
+    if(form.$valid) {
+      $scope.newTask.dueDate = $scope.newTask.dueDate.getTime();
+      $scope.userRef.child("tasks").push($scope.newTask);
+      $scope.newTask = {};
+    } else {
+      $scope.showActionToast("Missing something?")
     }
   }
 });

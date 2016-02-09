@@ -14,4 +14,19 @@ div(layout="row")
         a(href="#/signup") Sign Up
     div(id="task-list" ng-show="authenticated")
       div(class="task" ng-repeat="task in data.tasks")
-      md-button(id="new-task" class="md-fab md-button md-primary" aria-label="New task" ng-click="newTask")
+        h3 {{task.name}}
+        h4 {{task.dueDate | date}}
+      md-button(id="new-task" class="md-fab md-button md-primary" aria-label="New task" ng-click="addingTask=true;")
+div(layout="row" ng-show="addingTask")
+  div(layout-"column")
+    form(id="new-task-form" name="newTaskForm" ng-submit="addTask(newTaskForm)" novalidate)
+      h3 New Task
+      md-input-container
+        label Name
+        input(name="name" type="text" ng-model="newTask.name" required)
+      br
+      label Due Date
+      md-datepicker(ng-model="newTask.dueDate" md-min-date="Date.now()" required)
+      br
+      md-button(type="button" ng-click="addingTask=false;" class="md-raised md-warn confirm" value="Cancel") Cancel
+      md-button(type="submit" class="md-raised md-primary confirm" value="Add Task") Add Task
