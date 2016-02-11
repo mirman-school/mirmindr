@@ -8,7 +8,7 @@ Homework reminder app for Mirman School students.
 	- [Teams](#teams)
 	- [The Manual](#the-manual)
 		- [Introduction](#introduction)
-			- [Value Proposition](#value-proposition)
+			- [Value Proposition](#value-propo -m sition)
 			- [Overview](#overview)
 		- [Dowloading the Extension](#downloading-the-extension)
 		- [Logging in](#logging-in)
@@ -43,7 +43,7 @@ The term *MirMindr* is the name given to the product that the following writing 
 ### Introduction
 
 #### Value Proposition
-*For Mirman students who need a way to manage their homework loads, the MirMindr Google Chrome extension is the perfect tool. Unlike Google Keep, MirMindr is made specifically for Mirman students, ergo enhancing the process.*
+*For Mirman students who need a way to manage their homework loads, the* MirMindr *Google Chrome extension is the perfect tool. Unlike Google Keep, MirMindr is made specifically for Mirman students, ergo enhancing the process.*
 
 #### Overview
 *MirMindr* was designed in HTML, Sass, and JavaScript by Mirman students in the advanced Web Apps elective course. The code is compiled as a Google Extension. Its main features include: calendar integration, and alerting notifications based on custom time.
