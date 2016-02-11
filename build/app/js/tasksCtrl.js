@@ -54,6 +54,8 @@ angular.module("mirmindr")
   $scope.addTask = function(form) {
     if(form.$valid) {
       console.log($scope.newTask);
+      $scope.newTask.dueDate = $scope.newTask.dueDate.getTime();
+      $scope.newTask.done = false;
       $scope.userRef.child("tasks").push($scope.newTask);
       $scope.newTask = {};
     } else {
