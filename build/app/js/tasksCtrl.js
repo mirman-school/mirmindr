@@ -7,6 +7,7 @@ angular.module("mirmindr")
     $scope.authenticated = true;
     var syncObject = new $firebaseObject($scope.userRef);
     syncObject.$bindTo($scope,"data");
+    console.log($scope.data);
   };
   if (authData) {
     setUserRef(authData.uid);
@@ -15,6 +16,7 @@ angular.module("mirmindr")
     email: "",
     password: ""
   };
+
   $scope.newTask = {};
   chrome.identity.getProfileUserInfo(function(data){
     if(data.email) {
@@ -51,7 +53,7 @@ angular.module("mirmindr")
 
   $scope.addTask = function(form) {
     if(form.$valid) {
-      $scope.newTask.dueDate = $scope.newTask.dueDate.getTime();
+      console.log($scope.newTask);
       $scope.userRef.child("tasks").push($scope.newTask);
       $scope.newTask = {};
     } else {

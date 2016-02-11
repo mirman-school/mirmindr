@@ -1,32 +1,3 @@
-div(layout="row")
-  div(layout="column")
-    div(id-"login" ng-hide="authenticated")
-      form(id="login-form" name="loginForm" ng-submit="login(loginForm)")
-        h3 Login
-        md-input-container
-          label Email
-          input(type="email" name="email" ng-model="user.email")
-        md-input-container
-          label Password
-          input(name="password" type="password" ng-model="user.password")        
-        br
-        md-button(type="submit" class="md-raised md-primary confirm" value="Log In") Log In
-        a(href="#/signup") Sign Up
-    div(id="task-list" ng-show="authenticated")
-      div(class="task" ng-repeat="task in data.tasks")
-        h3 {{task.name}}
-        h4 {{task.dueDate | date}}
-      md-button(id="new-task" class="md-fab md-button md-primary" aria-label="New task" ng-click="addingTask=true;")
-div(layout="row" ng-show="addingTask")
-  div(layout-"column")
-    form(id="new-task-form" name="newTaskForm" ng-submit="addTask(newTaskForm)" novalidate)
-      h3 New Task
-      md-input-container
-        label Name
-        input(name="name" type="text" ng-model="newTask.name" required)
-      br
-      label Due Date
-      md-datepicker(ng-model="newTask.dueDate" md-min-date="Date.now()" required)
-      br
-      md-button(type="button" ng-click="addingTask=false;" class="md-raised md-warn confirm" value="Cancel") Cancel
-      md-button(type="submit" class="md-raised md-primary confirm" value="Add Task") Add Task
+include ./tasks_login.jade
+include ./tasks_form.jade
+include ./subjects.jade

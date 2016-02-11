@@ -1,12 +1,13 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto|Oswald)
 $background-color: #f0f4f5
 $header-color: #173345
+$app-width: 400px
 body
   background-color: $background-color
   font-family: Roboto,sans-serif
   font-size: 16px
   color: white
-  width: 400px
+  width: $app-width
   height: 500px!important
 
 h1,h2
@@ -23,6 +24,12 @@ h1,h2
 
 .confirm
   background-color: #57a265
+
+.task
+  width: $app-width
+  padding: 10px
+  &:hover
+    background-color: darken($background-color, 10%)
 
 #new-task
   background-image: url("../img/edit.png")
