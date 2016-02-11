@@ -1,5 +1,6 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto|Oswald)
 $background-color: #f0f4f5
+$default-text-color: #1a1a1a
 $header-color: #173345
 $app-width: 400px
 body
@@ -30,11 +31,13 @@ h3
   background-color: #57a265
 
 .task
+  color: $default-text-color
   width: $app-width
   padding: 10px
   &:hover
     background-color: darken($background-color, 10%)
-
+  h3,h4
+    color: $default-text-color
 #new-task
   background-image: url("../img/edit.png")
   background-repeat: no-repeat
