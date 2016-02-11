@@ -19,11 +19,13 @@ angular.module("mirmindr")
 
   $scope.toggleSubjects = function() {
     $scope.editingSubjects = $scope.editingSubjects ? false : true;
-  }
+    
+  };
 
   $scope.toggleAddingTask = function() {
     $scope.addingTask = $scope.addingTask ? false : true;
-  }
+    $scope.$apply();
+  };
 
   $scope.newTask = {};
   chrome.identity.getProfileUserInfo(function(data){

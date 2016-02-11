@@ -4,4 +4,4 @@ div(id="task-list" ng-show="authenticated")
       md-checkbox(ng-model="task.done" aria-label="{{task.name}} done?")
       {{data.subjects[task.subject].name}}: {{task.name}}
     h4 {{task.dueDate | date}}
-  md-button(id="new-task" class="md-fab md-button md-primary" aria-label="New task" ng-click="addingTask=true;")
+  md-button(id="new-task" class="md-fab md-button md-primary" aria-label="New task" ng-click="toggleAddingTask()")
