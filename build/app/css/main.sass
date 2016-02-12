@@ -3,22 +3,28 @@ $background-color: #f0f4f5
 $default-text-color: #1a1a1a
 $header-color: #173345
 $app-width: 400px
-body
+html
   background-color: $background-color
   font-family: Roboto,sans-serif
-  font-size: 16px
   color: white
   width: $app-width
   height: 500px!important
 
-h1,h2,h3
-  color: $background-color
+body
+  font-size: 16px
+  overflow-x: scroll
+
+h1,h2
+  font-weight: 300
+
+h2,h3
   font-weight: 300
 
 h3
   vertical-align: middle
 
 .header
+  color: $background-color
   background-color: $header-color
   padding: 3px 3px 3px 10px
   width: $app-width
@@ -42,7 +48,7 @@ h3
   background-image: url("../img/edit.png")
   background-repeat: no-repeat
   background-position: center center
-  position: absolute
+  position: fixed
   top: 85%
   right: 0%
 
@@ -52,5 +58,8 @@ h3
   top: 0
   left: 0
   width: $app-width
+  box-shadow: 0px 1px 3px $default-text-color
   &#edit-subjects
-    z-index: 999
+    z-index: 52
+  &#new-task-div
+    z-index: 51
