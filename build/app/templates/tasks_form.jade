@@ -1,4 +1,4 @@
-div(layout="row" ng-show="addingTask" class="popup")
+div(layout="row" ng-show="addingTask" class="popup" id="new-task-div")
   div(layout-"column")
     form(id="new-task-form" name="newTaskForm" ng-submit="addTask(newTaskForm)" novalidate)
       div(class="header")
@@ -10,7 +10,7 @@ div(layout="row" ng-show="addingTask" class="popup")
       md-input-container
         label Subject
         md-select(ng-model="newTask.subject" placeholder="Subject")
-          md-option(ng-value="k" ng-repeat="(k,v) in data.subjects") {{v.name}}
+          md-option(ng-value="sub.$id" ng-repeat="sub in subjects") {{sub.name}}
         md-button(class="md-raised md-primary md-small confirm" ng-click="toggleSubjects()") Edit Subjects
       br
       label Due Date

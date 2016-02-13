@@ -1,15 +1,16 @@
 angular.module("mirmindr")
-.controller("tasksCtrl",function($scope,$mdToast,$mdDialog,$firebaseObject){
+.controller("tasksCtrl",function($scope,$mdToast,$mdDialog,$firebaseArray){
   var ref = new Firebase("https://mirmindr.firebaseio.com");
   var authData = ref.getAuth();
   function setUserRef(uid){
     $scope.userRef = ref.child("users").child(uid);
     $scope.authenticated = true;
-    var syncObject = new $firebaseObject($scope.userRef);
-    syncObject.$bindTo($scope,"data");
-    console.log($scope.data);
+    $scope.tasks = $firebaseArray($scope.userRef.child("tasks"));
+    $scope.subjects = $firebaseArray($scope.userRef.child("subjects"));
+    console.log($scope.tasks);
   };
   if (authData) {
+    console.log("Authenticated");
     setUserRef(authData.uid);
   }
   $scope.user = {
@@ -19,12 +20,11 @@ angular.module("mirmindr")
 
   $scope.toggleSubjects = function() {
     $scope.editingSubjects = $scope.editingSubjects ? false : true;
-    
+
   };
 
   $scope.toggleAddingTask = function() {
     $scope.addingTask = $scope.addingTask ? false : true;
-    $scope.$apply();
   };
 
   $scope.newTask = {};
@@ -61,12 +61,17 @@ angular.module("mirmindr")
     }
   }
 
+  $scope.deleteTask = function(task) {
+    $scope.userRef.child("data").child(task).$remove;
+  }
+
   $scope.addTask = function(form) {
     if(form.$valid) {
       console.log($scope.newTask);
       $scope.newTask.dueDate = $scope.newTask.dueDate.getTime();
       $scope.newTask.done = false;
-      $scope.userRef.child("tasks").push($scope.newTask);
+      $scope.tasks.$add($scope.newTask);
+      setTasksBySubject();
       $scope.newTask = {};
     } else {
       $scope.showActionToast("Missing something?")

@@ -2,7 +2,7 @@ div(layout="row" ng-show="editingSubjects" ng-controller="subjectsCtrl" class="p
   div(layout="column")
     div(class="header")
       h3 Subjects
-    div(class="subject-item" ng-repeat="sub in data.subjects")
+    div(class="subject-item" ng-repeat="sub in subjects")
       h4 {{sub.name}}
       p 
         b Period:   
