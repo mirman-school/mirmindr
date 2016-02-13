@@ -33,7 +33,7 @@ angular.module("mirmindr")
     task.done = task.done ? false : true;
     var msg = task.done ? task.name + " is done! " : task.name + " isn't done...";
     $scope.showActionToast(msg);
-    $scope.tasks.$save(task.$id);
+    $scope.tasks.$save(task);
   }
 
   $scope.newTask = {};
@@ -63,7 +63,7 @@ angular.module("mirmindr")
         if(error) {
           $scope.showActionToast(error.toString());
         } else {
-          $scope.setUserRef(authData.uid)
+          setUserRef(authData.uid);
           $scope.$apply();
         }
       });
