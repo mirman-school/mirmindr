@@ -27,13 +27,19 @@ angular.module("mirmindr")
 
   $scope.deleteTask = function(task) {
     $scope.tasks.$remove(task);
-  }
+  };
 
   $scope.toggleDone = function(task) {
     task.done = task.done ? false : true;
     var msg = task.done ? task.name + " is done! " : task.name + " isn't done...";
     $scope.showActionToast(msg);
     $scope.tasks.$save(task);
+  };
+
+  $scope.isOverdue = function(task) {
+    var date = new Date();
+    var taskDate = new Date(task.dueDate);
+    return date > taskDate;
   }
 
   $scope.newTask = {};

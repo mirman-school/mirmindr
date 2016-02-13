@@ -1,10 +1,10 @@
 div(id="task-list" ng-show="authenticated")
-  div(class="subject-group" ng-repeat="sub in subjects | orderBy: period")
-    h2(class="header") {{sub.name}}
-    div(class="task" ng-class="{done: task.done}" ng-repeat="task in tasks | filter: {subject: sub.$id} | orderBy: dueDate")
-      h3 
-        {{task.dueDate | date}} - {{task.name}}
-      //- md-checkbox(ng-model="task.done" aria-label="{{task.name}} done?")
+  md-list(class="subject-group" ng-repeat="sub in subjects | orderBy: period")
+    md-subheader(class="header") {{sub.name}}
+    md-list-item(class="task" ng-class="{done: task.done, overdue: isOverdue(task)}" ng-repeat="task in tasks | filter: {subject: sub.$id} | orderBy: dueDate")
+      div(class="md-list-item-text" layout="column")
+        p 
+          {{task.dueDate | date: "M/dd/yy"}} : {{task.name}}
       md-button(ng-class="{'md-accent': task.done, 'md-primary': !task.done,}" class="md-mini md-fab" ng-click="toggleDone(task)")
         md-icon done
       md-button(class="md-warn md-mini md-fab" ng-click="deleteTask(task)")

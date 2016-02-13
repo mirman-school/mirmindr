@@ -2,6 +2,7 @@
 $background-color: #f0f4f5
 $default-text-color: #1a1a1a
 $header-color: #173345
+$overdue-color: #f5715f
 $app-width: 400px
 html
   background-color: $background-color
@@ -40,6 +41,8 @@ h3
   color: $default-text-color
   width: $app-width
   padding: 10px
+  &.overdue
+    background-color: $overdue-color
   &:hover
     background-color: darken($background-color, 10%)
   h3,h4
