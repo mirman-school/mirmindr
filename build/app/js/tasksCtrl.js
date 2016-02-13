@@ -7,7 +7,6 @@ angular.module("mirmindr")
     $scope.authenticated = true;
     $scope.tasks = $firebaseArray($scope.userRef.child("tasks"));
     $scope.subjects = $firebaseArray($scope.userRef.child("subjects"));
-    console.log($scope.tasks);
   };
   if (authData) {
     console.log("Authenticated");
@@ -20,12 +19,22 @@ angular.module("mirmindr")
 
   $scope.toggleSubjects = function() {
     $scope.editingSubjects = $scope.editingSubjects ? false : true;
-
   };
 
   $scope.toggleAddingTask = function() {
     $scope.addingTask = $scope.addingTask ? false : true;
   };
+
+  $scope.deleteTask = function(task) {
+    $scope.tasks.$remove(task);
+  }
+
+  $scope.toggleDone = function(task) {
+    task.done = task.done ? false : true;
+    var msg = task.done ? task.name + " is done! " : task.name + " isn't done...";
+    $scope.showActionToast(msg);
+    $scope.tasks.$save(task.$id);
+  }
 
   $scope.newTask = {};
   chrome.identity.getProfileUserInfo(function(data){
@@ -59,10 +68,6 @@ angular.module("mirmindr")
         }
       });
     }
-  }
-
-  $scope.deleteTask = function(task) {
-    $scope.userRef.child("data").child(task).$remove;
   }
 
   $scope.addTask = function(form) {

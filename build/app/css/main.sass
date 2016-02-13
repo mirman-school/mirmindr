@@ -45,12 +45,17 @@ h3
   h3,h4
     color: $default-text-color
 
+.done
+  text-decoration: line-through
+
 #new-task
   position: fixed
   top: 85%
   right: 0%
 
 .popup
+  md-input-container
+    width: $app-width
   background-color: $background-color
   position: fixed
   top: 0
@@ -58,6 +63,7 @@ h3
   opacity: 1
   transition: all .3s
   width: $app-width
+  // height: 100vh
   box-shadow: 0px 1px 3px $default-text-color
   &.ng-hide
     opacity: 0

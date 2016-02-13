@@ -13,7 +13,7 @@ div(layout="row" ng-show="addingTask" class="popup" id="new-task-div")
           md-option(ng-value="sub.$id" ng-repeat="sub in subjects") {{sub.name}}
         md-button(class="md-raised md-primary md-small confirm" ng-click="toggleSubjects()") Edit Subjects
       br
-      label Due Date
+      //- label Due Date
       md-datepicker(ng-model="newTask.dueDate" md-min-date="Date.now()" required)
       br
       md-button(type="button" ng-click="toggleAddingTask()" class="md-raised md-warn confirm" value="Cancel") Cancel
