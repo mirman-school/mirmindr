@@ -4,6 +4,10 @@ div(id="task-list" ng-show="authenticated")
     div(class="task" ng-repeat="task in tasks | filter: {subject: sub.$id}")
       h3 
         {{task.dueDate | date}} - {{task.name}}
-      md-checkbox(ng-model="task.done" aria-label="{{task.name}} done?")
-      md-button(class="md-warn md-mini   md-fab" ng-click="deleteTask(task)")
+      //- md-checkbox(ng-model="task.done" aria-label="{{task.name}} done?")
+      md-button(class="md-primary md-mini md-fab" ng-click="toggleDone(task)")
+        md-icon done
+      md-button(class="md-warn md-mini md-fab" ng-click="deleteTask(task)")
+        md-icon delete
     md-button(id="new-task" class="md-fab md-small md-button md-primary" aria-label="New task" ng-click="toggleAddingTask()")
+      md-icon edit

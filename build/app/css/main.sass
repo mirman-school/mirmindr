@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Roboto|Oswald)
+@import url(https://fonts.googleapis.com/css?family=Roboto|Oswald|Material+Icons)
 $background-color: #f0f4f5
 $default-text-color: #1a1a1a
 $header-color: #173345
@@ -44,22 +44,25 @@ h3
     background-color: darken($background-color, 10%)
   h3,h4
     color: $default-text-color
+
 #new-task
-  background-image: url("../img/edit.png")
-  background-repeat: no-repeat
-  background-position: center center
   position: fixed
   top: 85%
   right: 0%
 
 .popup
   background-color: $background-color
-  position: absolute
+  position: fixed
   top: 0
   left: 0
+  opacity: 1
+  transition: all .3s
   width: $app-width
   box-shadow: 0px 1px 3px $default-text-color
+  &.ng-hide
+    opacity: 0
   &#edit-subjects
     z-index: 52
+    position: absolute
   &#new-task-div
     z-index: 51
