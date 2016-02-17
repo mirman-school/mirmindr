@@ -18,28 +18,25 @@ angular.module("mirmindr")
   };
 
   $scope.toggleSubjects = function() {
-    $scope.editingSubjects = $scope.editingSubjects ? false : true;
+    // If editingSubjects is true, make it false. Or vice versa
   };
 
   $scope.toggleAddingTask = function() {
-    $scope.addingTask = $scope.addingTask ? false : true;
+    // If addingTask is true, make it false. Or vice versa
   };
 
   $scope.deleteTask = function(task) {
-    $scope.tasks.$remove(task);
+    // Remove task from $scope.tasks
   };
 
   $scope.toggleDone = function(task) {
-    task.done = task.done ? false : true;
-    var msg = task.done ? task.name + " is done! " : task.name + " isn't done...";
-    $scope.showActionToast(msg);
-    $scope.tasks.$save(task);
+    // Mark task as done
+    // Alert with a toast
+    // Save the tasks array
   };
 
   $scope.isOverdue = function(task) {
-    var date = new Date();
-    var taskDate = new Date(task.dueDate);
-    return date > taskDate;
+    // Return true if the task's dueDate is older than now.
   }
 
   $scope.newTask = {};
