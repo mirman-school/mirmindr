@@ -9,13 +9,14 @@ div(layout="row" ng-show="editingSubjects" ng-controller="subjectsCtrl" class="p
       {{sub.period}}
     div(id="new-sub")
       form(name="subForm" ng-submit="addSub(subForm)" novalidate)
-        md-input-container
-          label Name
-          input(type="text" ng-model="newSub.name" placeholder="Name" required)
-        md-input-container
-          label Period #
-          input(type="number" min="1" ng-model="newSub.period" required)
-        br
+        div(flex="50")
+          md-input-container
+            label Name
+            input(type="text" ng-model="newSub.name" required)
+        div(flex="50")
+          md-input-container
+            label Period #
+            input(type="number" min="1" ng-model="newSub.period" required)
         md-button(type="button" class="md-raised md-warn md-small" ng-click="toggleSubjects()") Cancel
         md-button(type="submit" class="md-raised md-primary md-small" value="Add Subject") Add
           
