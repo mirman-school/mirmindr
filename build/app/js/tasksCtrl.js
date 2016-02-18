@@ -73,17 +73,11 @@ angular.module("mirmindr")
     }
   };
 
-<<<<<<< HEAD
   $scope.logout = function() {
     ref.unauth();
     $scope.authenticated = false;
   }
-=======
-  $scope.logout = function(){
-    ref.unauth();
-    $scope.authenticated = false;
-  };
->>>>>>> teacher
+
 
   $scope.addTask = function(form) {
     if(form.$valid) {
