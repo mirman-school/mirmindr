@@ -8,10 +8,4 @@ div(layout="row", ng-contoller="taskCtrl")
 
 div(class="header")
   h1(class="title") Mirmindr
-  
-div(layout="row", ng-contoller="taskCtrl")
-  div(layout="column")
-    md-progress-circular(md-mode="indeterminate" ng-if="!authenticated")
-    div(id="task-list" ng-if="authenticated")
-      p
-        i tasks go here
+ng-view
