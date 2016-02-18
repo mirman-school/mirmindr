@@ -71,6 +71,11 @@ angular.module("mirmindr")
         }
       });
     }
+  };
+
+  $scope.logout = function() {
+    ref.unauth();
+    $scope.authenticated = false;
   }
 
   $scope.addTask = function(form) {
