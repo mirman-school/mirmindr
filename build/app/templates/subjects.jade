@@ -2,12 +2,13 @@ div(layout="row" ng-show="editingSubjects" ng-controller="subjectsCtrl" class="p
   div(layout="column")
     div(class="header")
       h3 Subjects
-    div(class="subject-item" ng-repeat="sub in subjects | orderBy: period")
-      h4 {{sub.name}}
-      p 
-        b Period:   
-      {{sub.period}}
+    md-list
+      md-list-item(ng-repeat="sub in subjects" class="subject-item")
+        md-list-item-text 
+          {{sub.name}}, Period: {{sub.period}}
     div(id="new-sub")
+      div(class="header")
+        h3 New Subject
       form(name="subForm" ng-submit="addSub(subForm)" novalidate)
         div(flex="50")
           md-input-container
