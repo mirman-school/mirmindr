@@ -1,0 +1,17 @@
+div(id="task-list" ng-show="authenticated")
+  md-list(class="subject-group" ng-repeat="sub in subjects | orderBy: period")
+    md-subheader(class="header") {{sub.name}}
+    md-list-item(class="task" ng-class="{done: task.done, overdue: isOverdue(task)}" ng-repeat="task in tasks | filter: {subject: sub.$id} | orderBy: dueDate")
+      div(class="md-list-item-text" layout="column")
+        p 
+          {{task.dueDate | date: "M/dd/yy"}} : {{task.name}}
+      md-button(ng-class="{'md-accent': task.done, 'md-primary': !task.done,}" class="md-mini md-fab" ng-click="toggleDone(task)")
+        md-icon done
+      md-button(class="md-warn md-mini md-fab" ng-click="deleteTask(task)")
+        md-icon delete
+      md-button(class="md-accent md-mini md-fab" ng-click="editTask(task)")
+        md-icon edit  
+  md-button(id="new-task" class="md-fab md-small md-button md-primary" aria-label="New task" ng-click="toggleAddingTask()")
+    md-icon add
+  md-button(id="logout-btn" class="md-fab md-mini md-button md-primary" aria-label="Log Out" ng-click="logout()")
+    md-icon exit_to_app
