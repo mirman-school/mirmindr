@@ -3,8 +3,8 @@
 angular.module('mirmindr', ['ngMaterial'])
 .config(function($mdThemingProvider) {
   $mdThemingProvider.theme('mirmindrTheme')
-  .primaryPalette('')
-  .accentPalette('')
-  .warnPalette('')
-  .backgroundPalette('');
+  .primaryPalette(#f0f4f5)
+  .accentPalette(#173345)
+  .warnPalette(#f5715f)
+  .backgroundPalette(#1A1A1A);
 });
