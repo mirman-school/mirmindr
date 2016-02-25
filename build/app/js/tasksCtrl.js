@@ -28,7 +28,7 @@ angular.module("mirmindr")
   };
 
   $scope.deleteTask = function(task) {
-        $scope.deleteTask = $scope.addingTask ? false : true;
+        $scope.deleteTask = $scope.deleteTask ? false : true;
     // Remove task from $scope.tasks
   };
 
