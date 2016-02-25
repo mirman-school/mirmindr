@@ -28,13 +28,19 @@ angular.module("mirmindr")
   };
 
   $scope.deleteTask = function(task) {
+    $scope.tasks.$remove(task);
     // Remove task from $scope.tasks
   };
 
   $scope.toggleDone = function(task) {
     // Mark task as done
+    task.done = task.done ? false: true;
+
     // Alert with a toast
+    $scope.showActionToast("'" + task.name + "' has been marked as done");
+
     // Save the tasks array
+    $scope.tasks.$save(task);
   };
 
   $scope.isOverdue = function(task) {
