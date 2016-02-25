@@ -25,7 +25,7 @@ angular.module("mirmindr")
         console.log(userData);
         $scope.showActionToast("Signed up!")
         .then(function(){
-          $location.path("/");          
+          $location.path("/");
         });
       }
     })
