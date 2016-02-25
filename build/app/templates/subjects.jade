@@ -1,0 +1,23 @@
+div(layout="row" ng-show="editingSubjects" ng-controller="subjectsCtrl" class="popup" id="edit-subjects")
+  div(layout="column")
+    div(class="header")
+      h3 Subjects
+    md-list
+      md-list-item(ng-repeat="sub in subjects" class="subject-item")
+        md-list-item-text 
+          {{sub.name}}, Period: {{sub.period}}
+    div(id="new-sub")
+      div(class="header")
+        h3 New Subject
+      form(name="subForm" ng-submit="addSub(subForm)" novalidate)
+        div(flex="50")
+          md-input-container
+            label Name
+            input(type="text" ng-model="newSub.name" required)
+        div(flex="50")
+          md-input-container
+            label Period #
+            input(type="number" min="1" ng-model="newSub.period" required)
+        md-button(type="button" class="md-raised md-warn md-small" ng-click="toggleSubjects()") Cancel
+        md-button(type="submit" class="md-raised md-primary md-small" value="Add Subject") Add
+          
