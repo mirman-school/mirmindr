@@ -18,10 +18,12 @@ angular.module("mirmindr")
   };
 
   $scope.toggleSubjects = function() {
+    $scope.editingSubjects = $scope.editingSubjects ? false : true;
     // If editingSubjects is true, make it false. Or vice versa
   };
 
   $scope.toggleAddingTask = function() {
+    $scope.addingTask = $scope.addingTask ? false : true;
     // If addingTask is true, make it false. Or vice versa
   };
 
