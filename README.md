@@ -54,4 +54,4 @@ To download the *MirMindr* extension, open up the Chrome browser and type in the
 <br><br><img src="http://i.imgur.com/ohBJy0Y.png"><br><br>Then download the first extension entry. The extension can be accessed to the right of the URL bar.<br><br><img src="http://i.imgur.com/J5I3I7m.png">
 ___
 ### 2. Logging in
-Once downloaded and opened, the *Mirmindr* extension requires a login. 
+Once downloaded and opened, the *Mirmindr* extension requires a login.
