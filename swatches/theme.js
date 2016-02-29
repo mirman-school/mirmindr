@@ -3,9 +3,12 @@
 angular.module('mirmindr')
 .config(function($mdThemingProvider) {
   $mdThemingProvider.theme('mirmindrTheme')
-  var mirmindrPrimary = $mdThemingProvider.extendPalette('')
-  .primaryPalette(#f0f4f5)
-  .accentPalette(#173345)
-  .warnPalette(#f5715f)
-  .backgroundPalette(#1A1A1A);
+  var mirmindrAccent = $mdThemingProvider.extendPalette('Blue Grey', {
+    '500': '173345'
+  });
+  var mirmindrWarn = $mdThemingProvider.extendPalette('Orange', {
+    '500': 'f5715f'
+  });
+$mdThemingProvider.definePalette('mirmindrAccent', mirmindrAccent);
+$mdThemingProvider.definePalette('mirmindrWarn', m)
 });
