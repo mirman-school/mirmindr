@@ -10,7 +10,7 @@ div(layout="row" ng-show="addingTask" class="popup" id="new-task-div")
       md-input-container
         label Subject
         md-select(ng-model="newTask.subject" placeholder="Subject")
-          md-option(ng-value="sub.$id" ng-repeat="sub in subjects | orderBy: period") {{sub.name}}
+          md-option(ng-value="sub.$id" ng-repeat="sub in subjects | orderBy: '+period'") {{sub.name}}
         md-button(class="md-raised md-primary md-small confirm" ng-click="toggleSubjects()") Edit Subjects
       br
       //- label Due Date
