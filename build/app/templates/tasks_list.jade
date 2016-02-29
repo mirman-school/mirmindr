@@ -1,5 +1,5 @@
 div(id="task-list" ng-show="authenticated")
-  md-list(class="subject-group" ng-repeat="sub in subjects | orderBy: period")
+  md-list(class="subject-group" ng-repeat="sub in subjects | orderBy: 'period'")
     md-subheader(class="header") {{sub.name}}
     md-list-item(class="task" ng-class="{done: task.done, overdue: isOverdue(task)}" ng-repeat="task in tasks | filter: {subject: sub.$id} | orderBy: dueDate")
       div(class="md-list-item-text" layout="column")
