@@ -93,8 +93,8 @@ angular.module("mirmindr")
       $scope.newTask.dueDate = $scope.newTask.dueDate.getTime();
       $scope.newTask.done = false;
       $scope.tasks.$add($scope.newTask);
-      setTasksBySubject();
       $scope.newTask = {};
+      $scope.addingTask = false;
     } else {
       $scope.showActionToast("Missing something?")
     }
