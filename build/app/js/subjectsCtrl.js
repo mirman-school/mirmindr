@@ -9,4 +9,9 @@ angular.module("mirmindr")
       $scope.showActionToast("Missing Something?");
     }
   }
+
+  $scope.deleteSubject = function(sub) {
+    $scope.subjects.$remove(sub);
+  }
+
 });
