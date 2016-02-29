@@ -28,12 +28,9 @@ angular.module("mirmindr")
   };
 
   $scope.deleteTask = function(task) {
-<<<<<<< HEAD
+
         $scope.deleteTask = $scope.deleteTask ? false : true;
-=======
-    $scope.tasks.$remove(task);
->>>>>>> master
-    // Remove task from $scope.tasks
+
   };
 
   $scope.toggleDone = function(task) {
