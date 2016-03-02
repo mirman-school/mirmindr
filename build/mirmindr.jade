@@ -1,6 +1,11 @@
 include ./head.jade
   
 body(ng-app="mirmindr")
+
+div(layout="row", ng-contoller="taskCtrl")
+  h1(class="title") Mirmindr
+  h2(class="subtitle") {{5+3}}
+
 div(class="header")
   h1(class="title") Mirmindr
 ng-view
