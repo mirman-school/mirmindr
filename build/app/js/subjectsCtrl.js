@@ -8,10 +8,10 @@ angular.module("mirmindr")
     } else {
       $scope.showActionToast("Missing Something?");
     }
-  }
+  };
 
   $scope.deleteSubject = function(sub) {
     $scope.subjects.$remove(sub);
-  }
+  };
 
 });
