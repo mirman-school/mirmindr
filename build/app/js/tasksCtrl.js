@@ -34,11 +34,6 @@ angular.module("mirmindr")
   };
 
 
-  $scope.editTask = function(task) {
-    $scope.task.$editTask(task);
-  };
-
-
 
 =======
   $scope.editTask = function(task,form)
