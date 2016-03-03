@@ -42,6 +42,7 @@ angular.module("mirmindr")
     } else {
       $scope.showActionToast("Missing something?")
     }
+
   };
   $scope.toggleDone = function(task) {
     // Mark task as done
