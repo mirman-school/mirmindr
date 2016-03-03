@@ -40,6 +40,20 @@ angular.module("mirmindr")
 
 
 
+=======
+  $scope.editTask = function(task,form)
+  {
+    if(form.$valid) {
+      console.log($scope.task);
+      $scope.task.dueDate = $scope.newTask.dueDate.getTime();
+      $scope.task.done = false;
+      $scope.newTask = {};
+      $scope.addingTask = false;
+    } else {
+      $scope.showActionToast("Missing something?")
+    }
+  };
+>>>>>>> master
   $scope.toggleDone = function(task) {
     // Mark task as done
     task.done = task.done ? false: true;
