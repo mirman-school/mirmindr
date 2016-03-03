@@ -73,3 +73,11 @@ To download the MirMindr Extension, simply go to the Chrome Web Store (https://c
 
 #### Access
 Once the MirMindr Extension has been downloaded, you can access it on the Google Toolbar.
+
+### Logging-In
+
+#### Signing Up
+If this is the first time you are using the MirMindr Extension or you want to create another account, click on the Sign Up. <img src="http://imageshack.com/a/img924/2616/ZrWLpO.png">
+
+#### Log-in
+Once you are able to access the MirMindr Extension, MirMindr requires logging in. <img src="http://i.imgur.com/8uouyPR.png"><br>Mirmindr fetches your email, but if the email is incorrect or not the email you want to log-in with, change the email in the upper, email box. In the box that says password, enter in your password
