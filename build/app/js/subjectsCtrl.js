@@ -15,6 +15,5 @@ angular.module("mirmindr")
     if (deleteConfirm) {
       $scope.subjects.$remove(sub);
     }
-  }
-
+  };
 });
