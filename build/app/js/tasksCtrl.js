@@ -28,14 +28,9 @@ angular.module("mirmindr")
   };
 
   $scope.deleteTask = function(task) {
-
-        $scope.deleteTask = $scope.deleteTask ? false : true;
-
+    $scope.tasks.$remove(task);
+    // Remove task from $scope.tasks
   };
-
-
-
-=======
   $scope.editTask = function(task,form)
   {
     if(form.$valid) {
@@ -48,7 +43,6 @@ angular.module("mirmindr")
       $scope.showActionToast("Missing something?")
     }
   };
->>>>>>> master
   $scope.toggleDone = function(task) {
     // Mark task as done
     task.done = task.done ? false: true;
