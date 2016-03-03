@@ -28,7 +28,7 @@ angular.module("mirmindr")
           $location.path("/");
         });
       }
-    })
+    });
   };
 
   $scope.signup = function(form) {
