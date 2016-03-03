@@ -11,7 +11,11 @@ angular.module("mirmindr")
   }
 
   $scope.deleteSubject = function(sub) {
-    $scope.subjects.$remove(sub);
+    console.log("Running delete function");
+    var deleteConfirm = confirm("Are you sure you want to delete the subject?");
+    if (deleteConfirm) {
+      $scope.subjects.$remove(sub);
+    }
   }
 
 });
