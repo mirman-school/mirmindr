@@ -11,7 +11,7 @@ angular.module("mirmindr")
   }
 
   $scope.deleteSubject = function(sub) {
-    var deleteConfirm = confirm("Are you sure you want to delete the subject?");
+    var deleteConfirm = confirm("Are you sure you want to delete the subject? This will delete all tasks under this subject.");
     if (deleteConfirm) {
       $scope.subjects.$remove(sub);
     }
