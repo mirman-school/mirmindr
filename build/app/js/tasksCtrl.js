@@ -33,6 +33,13 @@ angular.module("mirmindr")
 
   };
 
+
+  $scope.editTask = function(task) {
+    $scope.task.$editTask(task);
+  };
+
+
+
   $scope.toggleDone = function(task) {
     // Mark task as done
     task.done = task.done ? false: true;
