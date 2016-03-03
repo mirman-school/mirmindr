@@ -1,8 +1,9 @@
-div(layout="row" ng-show="addingTask" class="popup" id="new-task-div")
+div(layout="row" ng-show="addingTask || editingTask" class="popup" id="new-task-div")
   div(layout-"column")
-    form(id="new-task-form" name="newTaskForm" ng-submit="addTask(newTaskForm)" novalidate)
+    form(id="new-task-form" name="newTaskForm" ng-submit="addTask(newTaskForm)"  novalidate)
       div(class="header")
-        h3 New Task
+        h3(ng-if="addingTask") New Task
+        h3(ng-if="editingTask") Edit Task
       md-input-container
         label Name
         input(name="name" type="text" ng-model="newTask.name" required)
@@ -16,5 +17,6 @@ div(layout="row" ng-show="addingTask" class="popup" id="new-task-div")
       //- label Due Date
       md-datepicker(ng-model="newTask.dueDate" md-min-date="Date.now()" required)
       br
-      md-button(type="button" ng-click="toggleAddingTask()" class="md-raised md-warn confirm" value="Cancel") Cancel
+      md-button(type="button" ng-if="addingTask" ng-click="toggleAddingTask()" class="md-raised md-warn confirm" value="Cancel") Cancel
+        md-button(type="button" ng-if="editingTask" ng-click="toggleAddingTask()" class="md-raised md-warn confirm" value="Cancel") Cancel
       md-button(type="submit" class="md-raised md-primary confirm" value="Add Task") Add Task

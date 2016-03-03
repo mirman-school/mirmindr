@@ -26,22 +26,14 @@ angular.module("mirmindr")
     $scope.addingTask = $scope.addingTask ? false : true;
     // If addingTask is true, make it false. Or vice versa
   };
-
+  $scope.toggleEditingTask = function(task) {
+    $scope.editingTask = $scope.editingTask ? false : true;
+    $scope.taskEditing=task;
+    // If editingTask is true, make it false. Or vice versa
+  };
   $scope.deleteTask = function(task) {
     $scope.tasks.$remove(task);
     // Remove task from $scope.tasks
-  };
-  $scope.editTask = function(task,form)
-  {
-    if(form.$valid) {
-      console.log($scope.task);
-      $scope.task.dueDate = $scope.newTask.dueDate.getTime();
-      $scope.task.done = false;
-      $scope.newTask = {};
-      $scope.addingTask = false;
-    } else {
-      $scope.showActionToast("Missing something?")
-    }
   };
   $scope.toggleDone = function(task) {
     // Mark task as done
@@ -106,6 +98,11 @@ angular.module("mirmindr")
       $scope.tasks.$add($scope.newTask);
       $scope.newTask = {};
       $scope.addingTask = false;
+      if($scope.editingTask)
+      {
+
+        scope.deleteTask($scope.taskEditing)
+      }
     } else {
       $scope.showActionToast("Missing something?")
     }
