@@ -13,7 +13,6 @@ Homework reminder app for Mirman School students.
 ## Teams
 **Dox**:
 1. Benjamin Volokh
-2. Miles Rovenger
 
 **Mockup**:
 1. Finn Weeks Manjarres
@@ -23,6 +22,7 @@ Homework reminder app for Mirman School students.
 1. Kyle Oppenheim
 2. Corey Marley
 3. Mason Shurman
+4. Miles Rovenger
 
 **Logic**:
 1. Aiden Tepper
@@ -77,7 +77,7 @@ Once the MirMindr Extension has been downloaded, you can access it on the Google
 ### Logging-In
 
 #### Signing Up
-If this is the first time you are using the MirMindr Extension or you want to create another account, click on the Sign Up. <img src="http://imageshack.com/a/img924/2616/ZrWLpO.png">
+If this is the first time you are using the MirMindr Extension or you want to create another account, click on the Sign Up. <img src="http://imageshack.com/a/img924/2616/ZrWLpO.png">. Once you get to the following picture (as an extension window)<br><img src="http://imageshack.com/a/img924/9696/SGLaxz.png">, enter in your email, password, and then confirm your password. The extension will then take you back to the home screen where you can log-in (follow the instructions below).
 
 #### Log-in
-Once you are able to access the MirMindr Extension, MirMindr requires logging in. <img src="http://i.imgur.com/8uouyPR.png"><br>Mirmindr fetches your email, but if the email is incorrect or not the email you want to log-in with, change the email in the upper, email box. In the box that says password, enter in your password
+Once you are able to access the MirMindr Extension, MirMindr requires logging in. <img src="http://i.imgur.com/8uouyPR.png"><br>Mirmindr fetches your email, but if the email is incorrect or not the email you want to log-in with, change the email in the upper, email box. In the box that says password, enter in your password. Then press log-in. If you get an error saying<br>`"Error: The specified password"`.<br><img src="http://imageshack.com/a/img923/5153/9u7FzT.png"> Press `OK`, and you will be taken back to the log-in screen (if the OK button is not pressed, the message will go away after 4 seconds). Then, re-enter the <i>correct</i> password. If you have done everything correctly, nice job! Welcome to MirMindr! You will be taken to the MirMindr homework app. 
