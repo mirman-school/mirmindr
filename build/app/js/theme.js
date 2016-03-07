@@ -3,12 +3,15 @@
 angular.module('mirmindr')
 .config(function($mdThemingProvider) {
   $mdThemingProvider.theme('mirmindrTheme')
-  var mirmindrAccent = $mdThemingProvider.extendPalette('Blue Grey', {
-    '500': '173345'
+  var mirmindrAccent = $mdThemingProvider.extendPalette('red', {
+    '500': 'e72d18'
   });
-  var mirmindrWarn = $mdThemingProvider.extendPalette('Orange', {
-    '500': 'f5715f'
+  var mirmindrWarn = $mdThemingProvider.extendPalette('purple', {
+    'A200': '9d60a9'
   });
-$mdThemingProvider.definePalette('mirmindrAccent', mirmindrAccent);
-$mdThemingProvider.definePalette('mirmindrWarn', m)
+  $mdThemingProvider.definePalette('mirmindrAccent', mirmindrAccent);
+  $mdThemingProvider.definePalette('mirmindrWarn', mirmindrWarn)
+  $mdThemingProvider.theme('default')
+    .warnPalette('mirmindrWarn')
+    .accentPalette('mirmindrAccent')
 });
