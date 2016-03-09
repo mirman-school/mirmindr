@@ -27,8 +27,19 @@ angular.module("mirmindr")
     // If addingTask is true, make it false. Or vice versa
   };
   $scope.toggleEditingTask = function(task) {
-    $scope.editingTask = $scope.editingTask ? false : true;
-    $scope.taskEditing=task;
+    if($scope.editingTask==true)
+    {
+
+ $scope.editingTask=false;
+    $scope.newTask={};
+    }
+    else {
+      $scope.newTask=task;
+      $scope.newTask.dueDate= new Date($scope.newTask.dueDate);
+      $scope.editingTask=true;
+
+    }
+
     // If editingTask is true, make it false. Or vice versa
   };
   $scope.deleteTask = function(task) {
@@ -92,16 +103,23 @@ angular.module("mirmindr")
 
   $scope.addTask = function(form) {
     if(form.$valid) {
-      console.log($scope.newTask);
-      $scope.newTask.dueDate = $scope.newTask.dueDate.getTime();
-      $scope.newTask.done = false;
-      $scope.tasks.$add($scope.newTask);
-      $scope.newTask = {};
-      $scope.addingTask = false;
+
+
+          $scope.newTask.dueDate = $scope.newTask.dueDate.getTime();
+          $scope.newTask.done=$scope.newTask.done || false;
       if($scope.editingTask)
       {
 
-        scope.deleteTask($scope.taskEditing)
+        $scope.tasks.$save($scope.newTask);
+        $scope.editingTask=false;
+      }
+      else{
+        //  console.log($scope.newTask);
+
+          $scope.newTask.done = false;
+          $scope.tasks.$add($scope.newTask);
+          $scope.newTask = {};
+            $scope.addingTask = false;
       }
     } else {
       $scope.showActionToast("Missing something?")
