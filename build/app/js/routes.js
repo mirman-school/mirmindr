@@ -8,5 +8,5 @@ angular.module("mirmindr")
   .when("/signup",{
     templateUrl: "app/templates/signup.html",
     controller: "signupCtrl"
-  })
+  });
 });
