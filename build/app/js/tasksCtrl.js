@@ -7,7 +7,7 @@ angular.module("mirmindr")
     $scope.authenticated = true;
     $scope.tasks = $firebaseArray($scope.userRef.child("tasks"));
     $scope.subjects = $firebaseArray($scope.userRef.child("subjects"));
-  };
+  }
   if (authData) {
     console.log("Authenticated");
     setUserRef(authData.uid);
@@ -59,7 +59,7 @@ angular.module("mirmindr")
 
   $scope.isOverdue = function(task) {
     // Return true if the task's dueDate is older than now.
-  }
+  };
 
   $scope.newTask = {};
   chrome.identity.getProfileUserInfo(function(data){
@@ -98,7 +98,7 @@ angular.module("mirmindr")
   $scope.logout = function() {
     ref.unauth();
     $scope.authenticated = false;
-  }
+  };
 
 
   $scope.addTask = function(form) {
@@ -122,7 +122,7 @@ angular.module("mirmindr")
             $scope.addingTask = false;
       }
     } else {
-      $scope.showActionToast("Missing something?")
+      $scope.showActionToast("Missing something?");
     }
-  }
+  };
 });
