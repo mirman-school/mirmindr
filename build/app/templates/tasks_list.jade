@@ -8,7 +8,7 @@ div(id="task-list" ng-show="authenticated")
       span(class='btn-container')
         md-button(ng-class="{'md-accent': task.done, 'md-primary': !task.done,}" class="md-mini md-fab" ng-click="toggleDone(task)")
           md-icon done
-        md-button(class="md-accent md-mini md-fab" ng-click="editTask(task)")
+        md-button(class="md-accent md-mini md-fab" ng-click="toggleEditingTask(task)")
           md-icon edit  
         md-button(class="md-warn md-mini md-fab" ng-click="deleteTask(task)")
           md-icon delete
