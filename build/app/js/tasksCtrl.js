@@ -17,11 +17,16 @@ angular.module("mirmindr")
     password: ""
   };
 
+
   $scope.toggleSubjects = function() {
     $scope.editingSubjects = $scope.editingSubjects ? false : true;
     // If editingSubjects is true, make it false. Or vice versa
   };
+$scope.setCurrentTask= function(task)
+{
 
+  $scope.CurrentTask=task;
+}
   $scope.toggleAddingTask = function() {
     $scope.addingTask = $scope.addingTask ? false : true;
     // If addingTask is true, make it false. Or vice versa
