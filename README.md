@@ -14,13 +14,13 @@ Homework reminder app for Mirman School students.
 		- [Accessing the Extension](#accessing-the-extension)
 			- [Download](#download)
 			- [Access](#access)
-		- [logging in](#logging in)
+		- [Logging in](#logging in)
 			- [Signing Up](#signing-up)
-			- [log in](#log in)
-			- [](#)
+			- [Log in](#log in)
+		- [Navigation](#)
 
 ## Teams
-**Dox**:
+**Docs**:
 1. Benjamin Volokh
 
 **Mockup**:
@@ -89,7 +89,7 @@ Once the MirMindr Extension has been downloaded, you can access it on the Google
 If this is the first time you are using the MirMindr Extension or you want to create another account, click on the Sign Up. <img src="http://imageshack.com/a/img924/2616/ZrWLpO.png">.<br>Once you get to the following picture (as an extension window),<br><img src="http://imageshack.com/a/img924/9696/SGLaxz.png"><br>enter in your email, password, and then confirm your password. The extension will then take you back to the home screen where you can log in (follow the instructions below). However, if your email has already been used to create an account, you will receive an error saying ``"Error: The specified email address is already in use"``. <img src="http://imageshack.com/a/img923/3954/1pSunN.png"> Press `OK`, and you will be taken back to the sign-in screen (if the OK button is not pressed, the message will go away after 4 seconds). Then, enter in a new email in the correct input box. Then, press the sign up button and you will be taken to the log in screen. If the password and the confirm password inputs don't match
 
 #### Log in
-Once you are able to access the MirMindr Extension, MirMindr requires logging in. <img src="http://i.imgur.com/8uouyPR.png"><br>Mirmindr fetches your email, but if the email is incorrect or not the email you want to log in with, change the email in the upper, email box. In the box that says password, enter in your password. Then press log in. If you get an error saying<br>`"Error: The specified password"`.<br><img src="http://imageshack.com/a/img923/5153/9u7FzT.png"> Press `OK`, and you will be taken back to the log in screen (if the OK button is not pressed, the message will go away after 4 seconds). Then, re-enter the <i>correct</i> password. If you have done everything correctly, nice job! Welcome to MirMindr! You will be taken to the MirMindr homework extension.
+Once you are able to access the MirMindr Extension, MirMindr requires logging in.<br><img src="http://i.imgur.com/8uouyPR.png"><br>Mirmindr fetches your email (only to use as an username you will never forget), but if the email is incorrect or not the email you want to log in with, change the email in the upper, email box. In the box that says password, enter in your password. Then press log in. If you get an error saying<br>`"Error: The specified password"`.<br><img src="http://imageshack.com/a/img923/5153/9u7FzT.png"> Press `OK`, and you will be taken back to the log in screen (if the OK button is not pressed, the message will go away after 4 seconds). Then, re-enter the <i>correct</i> password. If you have done everything correctly, nice job! Welcome to MirMindr! You will be taken to the MirMindr homework extension.
 
 ### Navigation
 The MirMindr extension has so many features, its overwhelming!
