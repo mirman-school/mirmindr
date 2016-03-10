@@ -20,6 +20,11 @@ h1,h2,h3
 h3
   vertical-align: middle
 
+.btn-container
+  text-align: right
+  position: absolute
+  right: 4%
+
 .header
   color: $background-color
   background-color: $header-color
@@ -55,7 +60,11 @@ h3
   position: fixed
   top: 3%
   right: 0%
-
+.task-button
+  opacity: 1
+  transition: all0.3s !important
+  &.ng-hide
+    opacity: 0
 .popup
   md-input-container
     width: $app-width
@@ -75,3 +84,6 @@ h3
     position: absolute
   &#new-task-div
     z-index: 51
+
+.md-subheader
+  font-size: 20px!important

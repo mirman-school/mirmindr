@@ -7,7 +7,7 @@ angular.module("mirmindr")
     $scope.authenticated = true;
     $scope.tasks = $firebaseArray($scope.userRef.child("tasks"));
     $scope.subjects = $firebaseArray($scope.userRef.child("subjects"));
-  };
+  }
   if (authData) {
     console.log("Authenticated");
     setUserRef(authData.uid);
@@ -17,31 +17,39 @@ angular.module("mirmindr")
     password: ""
   };
 
+
   $scope.toggleSubjects = function() {
     $scope.editingSubjects = $scope.editingSubjects ? false : true;
     // If editingSubjects is true, make it false. Or vice versa
   };
+$scope.setCurrentTask= function(task)
+{
 
+  $scope.CurrentTask=task;
+}
   $scope.toggleAddingTask = function() {
     $scope.addingTask = $scope.addingTask ? false : true;
     // If addingTask is true, make it false. Or vice versa
   };
+  $scope.toggleEditingTask = function(task) {
+    if($scope.editingTask==true)
+    {
 
+ $scope.editingTask=false;
+    $scope.newTask={};
+    }
+    else {
+      $scope.newTask=task;
+      $scope.newTask.dueDate= new Date($scope.newTask.dueDate);
+      $scope.editingTask=true;
+
+    }
+
+    // If editingTask is true, make it false. Or vice versa
+  };
   $scope.deleteTask = function(task) {
     $scope.tasks.$remove(task);
     // Remove task from $scope.tasks
-  };
-  $scope.editTask = function(task,form)
-  {
-    if(form.$valid) {
-      console.log($scope.task);
-      $scope.task.dueDate = $scope.newTask.dueDate.getTime();
-      $scope.task.done = false;
-      $scope.newTask = {};
-      $scope.addingTask = false;
-    } else {
-      $scope.showActionToast("Missing something?")
-    }
   };
   $scope.toggleDone = function(task) {
     // Mark task as done
@@ -56,7 +64,7 @@ angular.module("mirmindr")
 
   $scope.isOverdue = function(task) {
     // Return true if the task's dueDate is older than now.
-  }
+  };
 
   $scope.newTask = {};
   chrome.identity.getProfileUserInfo(function(data){
@@ -95,19 +103,31 @@ angular.module("mirmindr")
   $scope.logout = function() {
     ref.unauth();
     $scope.authenticated = false;
-  }
+  };
 
 
   $scope.addTask = function(form) {
     if(form.$valid) {
-      console.log($scope.newTask);
-      $scope.newTask.dueDate = $scope.newTask.dueDate.getTime();
-      $scope.newTask.done = false;
-      $scope.tasks.$add($scope.newTask);
-      $scope.newTask = {};
-      $scope.addingTask = false;
+
+
+          $scope.newTask.dueDate = $scope.newTask.dueDate.getTime();
+          $scope.newTask.done=$scope.newTask.done || false;
+      if($scope.editingTask)
+      {
+
+        $scope.tasks.$save($scope.newTask);
+        $scope.editingTask=false;
+      }
+      else{
+        //  console.log($scope.newTask);
+
+          $scope.newTask.done = false;
+          $scope.tasks.$add($scope.newTask);
+          $scope.newTask = {};
+            $scope.addingTask = false;
+      }
     } else {
-      $scope.showActionToast("Missing something?")
+      $scope.showActionToast("Missing something?");
     }
-  }
+  };
 });
