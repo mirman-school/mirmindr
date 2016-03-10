@@ -43,6 +43,8 @@ angular.module("mirmindr")
   $scope.deleteTask = function(task) {
     $scope.tasks.$remove(task);
     // Remove task from $scope.tasks
+
+
   };
   $scope.toggleDone = function(task) {
     // Mark task as done
@@ -56,7 +58,7 @@ angular.module("mirmindr")
   };
 
   $scope.isOverdue = function(task) {
-    // Return true if the task's dueDate is older than now.
+    //Return true if current date is past dueDate
   };
 
   $scope.newTask = {};
