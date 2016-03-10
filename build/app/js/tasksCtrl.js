@@ -56,10 +56,7 @@ angular.module("mirmindr")
     $scope.tasks.$remove(task);
     // Remove task from $scope.tasks
   };
-<<<<<<< HEAD
 
-=======
->>>>>>> master
   $scope.toggleDone = function(task) {
     // Mark task as done
     task.done = task.done ? false: true;
