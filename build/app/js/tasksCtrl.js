@@ -7,7 +7,7 @@ angular.module("mirmindr")
     $scope.authenticated = true;
     $scope.tasks = $firebaseArray($scope.userRef.child("tasks"));
     $scope.subjects = $firebaseArray($scope.userRef.child("subjects"));
-  };
+  }
   if (authData) {
     console.log("Authenticated");
     setUserRef(authData.uid);
@@ -26,7 +26,21 @@ angular.module("mirmindr")
     $scope.addingTask = $scope.addingTask ? false : true;
     // If addingTask is true, make it false. Or vice versa
   };
+  $scope.toggleEditingTask = function(task) {
+    if($scope.editingTask==true)
+    {
 
+ $scope.editingTask=false;
+    $scope.newTask={};
+    }
+    else {
+      $scope.newTask=task;
+      $scope.newTask.dueDate= new Date($scope.newTask.dueDate);
+      $scope.editingTask=true;
+
+    }
+
+<<<<<<< HEAD
   $scope.toggleEditingTask = function(task) {
     $scope.editingTask = $scope.editingTask ? false : true;
     $scope.toggleAddingTask();
@@ -34,11 +48,18 @@ angular.module("mirmindr")
     // If addingTask is true, make it false. Or vice versa
   };
 
+=======
+    // If editingTask is true, make it false. Or vice versa
+  };
+>>>>>>> master
   $scope.deleteTask = function(task) {
     $scope.tasks.$remove(task);
     // Remove task from $scope.tasks
   };
+<<<<<<< HEAD
 
+=======
+>>>>>>> master
   $scope.toggleDone = function(task) {
     // Mark task as done
     task.done = task.done ? false: true;
@@ -52,7 +73,7 @@ angular.module("mirmindr")
 
   $scope.isOverdue = function(task) {
     // Return true if the task's dueDate is older than now.
-  }
+  };
 
   $scope.newTask = {};
   chrome.identity.getProfileUserInfo(function(data){
@@ -91,11 +112,12 @@ angular.module("mirmindr")
   $scope.logout = function() {
     ref.unauth();
     $scope.authenticated = false;
-  }
+  };
 
 
   $scope.addTask = function(form) {
     if(form.$valid) {
+<<<<<<< HEAD
       console.log($scope.newTask);
       $scope.newTask.dueDate = $scope.newTask.dueDate.getTime();
       $scope.newTask.done = false;
@@ -107,8 +129,28 @@ angular.module("mirmindr")
 
       $scope.newTask = {};
       $scope.addingTask = false;
+=======
+
+
+          $scope.newTask.dueDate = $scope.newTask.dueDate.getTime();
+          $scope.newTask.done=$scope.newTask.done || false;
+      if($scope.editingTask)
+      {
+
+        $scope.tasks.$save($scope.newTask);
+        $scope.editingTask=false;
+      }
+      else{
+        //  console.log($scope.newTask);
+
+          $scope.newTask.done = false;
+          $scope.tasks.$add($scope.newTask);
+          $scope.newTask = {};
+            $scope.addingTask = false;
+      }
+>>>>>>> master
     } else {
-      $scope.showActionToast("Missing something?")
+      $scope.showActionToast("Missing something?");
     }
-  }
+  };
 });

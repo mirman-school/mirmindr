@@ -1,21 +1,34 @@
-div(layout="row" ng-show="addingTask" class="popup" id="new-task-div")
+div(layout="row" ng-show="addingTask || editingTask" class="popup" id="new-task-div")
   div(layout-"column")
+<<<<<<< HEAD
     form(id="new-task-form" name="newTaskForm" ng-if="addingTask" ng-submit="addTask(newTaskForm)" novalidate)
         form(id="new-task-form" name="newTaskForm" ng-if="editingTask" ng-submit="editTask(taskEditing,newTaskForm), toggleEditingTask(taskEditing);" novalidate)
+=======
+    form(id="new-task-form" name="newTaskForm" ng-submit="addTask(newTaskForm)"  novalidate)
+
+>>>>>>> master
       div(class="header")
-        h3 New Task
+        h3(ng-if="addingTask") New Task
+        h3(ng-if="editingTask") Edit Task
       md-input-container
         label Name
-        input(name="name" type="text" ng-model="newTask.name" required)
+        input( name="name" type="text" ng-model="newTask.name" required)
       br
       md-input-container
         label Subject
-        md-select(ng-model="newTask.subject" placeholder="Subject")
+      
+        md-select(ng-model="newTask.subject")
           md-option(ng-value="sub.$id" ng-repeat="sub in subjects | orderBy: '+period'") {{sub.name}}
         md-button(class="md-raised md-primary md-small confirm" ng-click="toggleSubjects()") Edit Subjects
       br
       //- label Due Date
       md-datepicker(ng-model="newTask.dueDate" md-min-date="Date.now()" required)
       br
+<<<<<<< HEAD
       md-button(type="button" ng-if="addingTask" ng-click="toggleAddingTask()" class="md-raised md-warn confirm" value="Cancel") Cancel
+=======
+      
+      md-button(type="button" ng-if="addingTask" ng-click="toggleAddingTask()" class="md-raised md-warn confirm" value="Cancel") Cancel
+      md-button(type="button" ng-if="editingTask" ng-click="toggleEditingTask(newTask)" class="md-raised md-warn confirm" value="Cancel") Cancel
+>>>>>>> master
       md-button(type="submit" class="md-raised md-primary confirm" value="Add Task") Add Task
