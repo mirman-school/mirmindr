@@ -41,11 +41,21 @@ angular.module("mirmindr")
     // If editingTask is true, make it false. Or vice versa
   };
   $scope.deleteTask = function(task) {
-    $scope.tasks.$remove(task);
+      var confirm = $mdDialog.confirm()
+            .title('Are you sure you want to delete this task?')
+            .textContent('This cannot be undone.')
+            .ok('Yes')
+            .cancel('No');
+      $mdDialog.show(confirm).then(function() {
+        $scope.tasks.$remove(task);
+      }, function() {
+      });
+    };
+  });
     // Remove task from $scope.tasks
 
 
-  };
+
   $scope.toggleDone = function(task) {
     // Mark task as done
     task.done = task.done ? false: true;
@@ -125,4 +135,3 @@ angular.module("mirmindr")
       $scope.showActionToast("Missing something?");
     }
   };
-});
