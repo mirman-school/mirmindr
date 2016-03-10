@@ -51,7 +51,7 @@ angular.module("mirmindr")
       }, function() {
       });
     };
-  });
+
     // Remove task from $scope.tasks
 
 
@@ -135,3 +135,4 @@ angular.module("mirmindr")
       $scope.showActionToast("Missing something?");
     }
   };
+});
