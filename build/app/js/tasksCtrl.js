@@ -27,13 +27,11 @@ angular.module("mirmindr")
     // If addingTask is true, make it false. Or vice versa
   };
   $scope.toggleEditingTask = function(task) {
-    if($scope.editingTask==true)
+    if($scope.editingTask===true)
     {
-
- $scope.editingTask=false;
+    $scope.editingTask=false;
     $scope.newTask={};
-    }
-    else {
+    } else {
       $scope.newTask=task;
       $scope.newTask.dueDate= new Date($scope.newTask.dueDate);
       $scope.editingTask=true;
