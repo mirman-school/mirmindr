@@ -27,36 +27,25 @@ angular.module("mirmindr")
     // If addingTask is true, make it false. Or vice versa
   };
   $scope.toggleEditingTask = function(task) {
-    if($scope.editingTask===true)
+    if($scope.editingTask==true)
     {
-    $scope.editingTask=false;
+
+ $scope.editingTask=false;
     $scope.newTask={};
-    } else {
+    }
+    else {
       $scope.newTask=task;
       $scope.newTask.dueDate= new Date($scope.newTask.dueDate);
       $scope.editingTask=true;
 
     }
 
-<<<<<<< HEAD
-  $scope.toggleEditingTask = function(task) {
-    $scope.editingTask = $scope.editingTask ? false : true;
-    $scope.toggleAddingTask();
-    $scope.newTask;
-    // If addingTask is true, make it false. Or vice versa
-  };
-
-=======
     // If editingTask is true, make it false. Or vice versa
   };
->>>>>>> master
   $scope.deleteTask = function(task) {
     $scope.tasks.$remove(task);
     // Remove task from $scope.tasks
-
-
   };
-
   $scope.toggleDone = function(task) {
     // Mark task as done
     task.done = task.done ? false: true;
@@ -69,7 +58,7 @@ angular.module("mirmindr")
   };
 
   $scope.isOverdue = function(task) {
-    //Return true if current date is past dueDate
+    // Return true if the task's dueDate is older than now.
   };
 
   $scope.newTask = {};
@@ -114,19 +103,6 @@ angular.module("mirmindr")
 
   $scope.addTask = function(form) {
     if(form.$valid) {
-<<<<<<< HEAD
-      console.log($scope.newTask);
-      $scope.newTask.dueDate = $scope.newTask.dueDate.getTime();
-      $scope.newTask.done = false;
-      if($scope.editingTask) {
-          $scope.tasks.$save($scope.newTask);
-      } else {
-          $scope.tasks.$add($scope.newTask);
-      }
-
-      $scope.newTask = {};
-      $scope.addingTask = false;
-=======
 
 
           $scope.newTask.dueDate = $scope.newTask.dueDate.getTime();
@@ -145,7 +121,6 @@ angular.module("mirmindr")
           $scope.newTask = {};
             $scope.addingTask = false;
       }
->>>>>>> master
     } else {
       $scope.showActionToast("Missing something?");
     }
