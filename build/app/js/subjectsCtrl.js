@@ -4,7 +4,14 @@ angular.module("mirmindr")
   $scope.addSub = function(form) {
     if(form.$valid) {
       console.log($scope.newSub);
+  
       $scope.userRef.child("subjects").push($scope.newSub);
+
+    if($scope.editingSubject)
+    {
+
+      $scope.deleteSubject($scope.oldSub);
+    }
       $scope.newSub = {};
     } else {
       $scope.showActionToast("Missing Something?");
@@ -25,8 +32,10 @@ $scope.editSubject = function(sub){
   } else {
     $scope.newSub.name=sub.name;
     $scope.newSub.period=sub.period;
+    $scope.oldSub=sub;
     $scope.editingSubject=true;
     console.log($scope.sub);
+
   }
   };
 $scope.deleteSubject = function(sub) {
