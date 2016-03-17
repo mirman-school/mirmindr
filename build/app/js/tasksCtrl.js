@@ -119,7 +119,12 @@ $scope.resetPassword = function() {
   ref.resetPassword({
     email: $scope.user.email
   }, function(error) {
-    if (error === null)
+    if (error === null) {
+      $scope.showActionToast("Reset Email Sent!")
+    } else {
+      $scope.showActionToast("Reset Email Not Sent!")
+    }
+
   }
 )}
 
