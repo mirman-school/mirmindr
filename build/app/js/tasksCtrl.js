@@ -115,6 +115,18 @@ $scope.setCurrentTask= function(task)
     $scope.authenticated = false;
   };
 
+$scope.resetPassword = function() {
+  ref.resetPassword({
+    email: $scope.user.email
+  }, function(error) {
+    if (error === null) {
+      $scope.showActionToast("Reset Email Sent!")
+    } else {
+      $scope.showActionToast("Reset Email Not Sent!")
+    }
+
+  }
+)}
 
   $scope.addTask = function(form) {
     if(form.$valid) {
