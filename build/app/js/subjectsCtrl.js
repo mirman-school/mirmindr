@@ -4,13 +4,13 @@ angular.module("mirmindr")
   $scope.addSub = function(form) {
     if(form.$valid) {
       console.log($scope.newSub);
-  
+
       $scope.userRef.child("subjects").push($scope.newSub);
 
     if($scope.editingSubject)
     {
 
-      $scope.deleteSubject($scope.oldSub);
+      $scope.subjects.$remove($scope.oldSub);
     }
       $scope.newSub = {};
     } else {
