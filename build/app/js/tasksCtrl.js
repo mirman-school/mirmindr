@@ -32,13 +32,11 @@ $scope.setCurrentTask= function(task)
     // If addingTask is true, make it false. Or vice versa
   };
   $scope.toggleEditingTask = function(task) {
-    if($scope.editingTask==true)
+    if($scope.editingTask===true)
     {
-
- $scope.editingTask=false;
+    $scope.editingTask=false;
     $scope.newTask={};
-    }
-    else {
+    } else {
       $scope.newTask=task;
       $scope.newTask.dueDate= new Date($scope.newTask.dueDate);
       $scope.editingTask=true;
@@ -48,9 +46,21 @@ $scope.setCurrentTask= function(task)
     // If editingTask is true, make it false. Or vice versa
   };
   $scope.deleteTask = function(task) {
-    $scope.tasks.$remove(task);
+      var confirm = $mdDialog.confirm()
+            .title('Are you sure you want to delete this task?')
+            .textContent('This cannot be undone.')
+            .ok('Yes')
+            .cancel('No');
+      $mdDialog.show(confirm).then(function() {
+        $scope.tasks.$remove(task);
+      }, function() {
+      });
+    };
+
     // Remove task from $scope.tasks
-  };
+
+
+
   $scope.toggleDone = function(task) {
     // Mark task as done
     task.done = task.done ? false: true;
@@ -63,7 +73,7 @@ $scope.setCurrentTask= function(task)
   };
 
   $scope.isOverdue = function(task) {
-    // Return true if the task's dueDate is older than now.
+    //Return true if current date is past dueDate
   };
 
   $scope.newTask = {};
@@ -105,6 +115,18 @@ $scope.setCurrentTask= function(task)
     $scope.authenticated = false;
   };
 
+$scope.resetPassword = function() {
+  ref.resetPassword({
+    email: $scope.user.email
+  }, function(error) {
+    if (error === null) {
+      $scope.showActionToast("Reset Email Sent!")
+    } else {
+      $scope.showActionToast("Reset Email Not Sent!")
+    }
+
+  }
+)}
 
   $scope.addTask = function(form) {
     if(form.$valid) {
