@@ -18,8 +18,6 @@ angular.module("mirmindr")
     }
   };
 
-<<<<<<< HEAD
-
 
   if($scope.editingSubjects)
 {
@@ -27,29 +25,11 @@ $scope.subs.$save($scope.newSub);
 $scope.editingSubjects=false;
 }
 else{
-//  console.log($scope.newTask);
 
   $scope.newSub.done = false;
   $scope.subjects.$add($scope.newTask);
   $scope.newSub = {};
 }
-
-
-//   $scope.deleteSubject = function(sub) {
-//     var deleteConfirm = confirm("Are you sure you want to delete the subject? This will delete all tasks under this subject.");
-//     if (deleteConfirm) {
-//       $scope.subjects.$remove(sub);
-//     }
-//   };
-// });
-=======
-  //   $scope.deleteSubject = function(sub) {
-  //     var deleteConfirm = confirm("Are you sure you want to delete the subject? This will delete all tasks under this subject.");
-  //     if (deleteConfirm) {
-  //       $scope.subjects.$remove(sub);
-  //     }
-  //   };
-  // });
 $scope.editSubject = function(sub){
   if($scope.editingSubject===true) {
   $scope.editingSubject=false;
@@ -60,7 +40,6 @@ $scope.editSubject = function(sub){
     $scope.oldSub=sub;
     $scope.editingSubject=true;
     console.log($scope.sub);
->>>>>>> 3453707ced5f358cff440035cd1ddeb1222243dd
 
   }
   };
