@@ -8,7 +8,7 @@ div(layout="row" ng-show="editingSubjects" ng-controller="subjectsCtrl" class="p
           {{sub.name}}, Period: {{sub.period}}
           md-button(type="submit" class="md-fab md-mini md-warn" value="Delete Subject" ng-click="deleteSubject(sub)") 
             md-icon delete
-          md-button(type="submit" class="md-fab md-mini md-accent" value="Edit Subject" ng-click="editSubject(sub)")
+          md-button(type="submit" class="md-fab md-mini md-accent" value="Edit Subject" ng-click="addSub(subForm)")
             md-icon edit
     div(id="new-sub")
       div(class="header")

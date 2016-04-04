@@ -48,9 +48,25 @@ $scope.setCurrentTask= function(task)
     // If editingTask is true, make it false. Or vice versa
   };
   $scope.deleteTask = function(task) {
-    $scope.tasks.$remove(task);
+      var confirm = $mdDialog.confirm()
+            .title('Are you sure you want to delete this task?')
+            .textContent('This cannot be undone.')
+            .ok('Yes')
+            .cancel('No');
+      $mdDialog.show(confirm).then(function() {
+        $scope.tasks.$remove(task);
+      }, function() {
+      });
+    };
+
     // Remove task from $scope.tasks
+<<<<<<< HEAD
   };
+=======
+
+
+
+>>>>>>> 68d48159371eba5985647936fbe655fb7494b714
   $scope.toggleDone = function(task) {
     // Mark task as done
     task.done = task.done ? false: true;
@@ -105,6 +121,18 @@ $scope.setCurrentTask= function(task)
     $scope.authenticated = false;
   };
 
+$scope.resetPassword = function() {
+  ref.resetPassword({
+    email: $scope.user.email
+  }, function(error) {
+    if (error === null) {
+      $scope.showActionToast("Reset Email Sent!")
+    } else {
+      $scope.showActionToast("Reset Email Not Sent!")
+    }
+
+  }
+)}
 
   $scope.addTask = function(form) {
     if(form.$valid) {
