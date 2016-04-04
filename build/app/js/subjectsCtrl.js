@@ -10,6 +10,22 @@ angular.module("mirmindr")
     }
   }
 
+
+
+  if($scope.editingSubjects)
+{
+$scope.subs.$save($scope.newSub);
+$scope.editingSubjects=false;
+}
+else{
+//  console.log($scope.newTask);
+
+  $scope.newSub.done = false;
+  $scope.subjects.$add($scope.newTask);
+  $scope.newSub = {};
+}
+
+
 //   $scope.deleteSubject = function(sub) {
 //     var deleteConfirm = confirm("Are you sure you want to delete the subject? This will delete all tasks under this subject.");
 //     if (deleteConfirm) {
