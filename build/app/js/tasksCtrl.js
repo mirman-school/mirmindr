@@ -48,6 +48,7 @@ $scope.setCurrentTask= function(task)
     // If editingTask is true, make it false. Or vice versa
   };
   $scope.deleteTask = function(task) {
+    // Remove task from $scope.tasks
       var confirm = $mdDialog.confirm()
             .title('Are you sure you want to delete this task?')
             .textContent('This cannot be undone.')
@@ -55,18 +56,11 @@ $scope.setCurrentTask= function(task)
             .cancel('No');
       $mdDialog.show(confirm).then(function() {
         $scope.tasks.$remove(task);
-      }, function() {
-      });
-    };
-
-    // Remove task from $scope.tasks
-<<<<<<< HEAD
+        }, function() {
+        }
+      );
   };
-=======
 
-
-
->>>>>>> 68d48159371eba5985647936fbe655fb7494b714
   $scope.toggleDone = function(task) {
     // Mark task as done
     task.done = task.done ? false: true;
