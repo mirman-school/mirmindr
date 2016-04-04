@@ -18,8 +18,6 @@ angular.module("mirmindr")
     }
   };
 
-<<<<<<< HEAD
-
 
   if($scope.editingSubjects)
 {
@@ -60,7 +58,7 @@ $scope.editSubject = function(sub){
     $scope.oldSub=sub;
     $scope.editingSubject=true;
     console.log($scope.sub);
->>>>>>> 3453707ced5f358cff440035cd1ddeb1222243dd
+
 
   }
   };
