@@ -3,13 +3,22 @@ angular.module("mirmindr")
   $scope.newSub = {};
   $scope.addSub = function(form) {
     if(form.$valid) {
+      console.log($scope.newSub);
+
       $scope.userRef.child("subjects").push($scope.newSub);
+
+    if($scope.editingSubject)
+    {
+
+      $scope.subjects.$remove($scope.oldSub);
+    }
       $scope.newSub = {};
     } else {
       $scope.showActionToast("Missing Something?");
     }
-  }
+  };
 
+<<<<<<< HEAD
 
 
   if($scope.editingSubjects)
@@ -33,7 +42,28 @@ else{
 //     }
 //   };
 // });
+=======
+  //   $scope.deleteSubject = function(sub) {
+  //     var deleteConfirm = confirm("Are you sure you want to delete the subject? This will delete all tasks under this subject.");
+  //     if (deleteConfirm) {
+  //       $scope.subjects.$remove(sub);
+  //     }
+  //   };
+  // });
+$scope.editSubject = function(sub){
+  if($scope.editingSubject===true) {
+  $scope.editingSubject=false;
+  $scope.newSub={};
+  } else {
+    $scope.newSub.name=sub.name;
+    $scope.newSub.period=sub.period;
+    $scope.oldSub=sub;
+    $scope.editingSubject=true;
+    console.log($scope.sub);
+>>>>>>> 3453707ced5f358cff440035cd1ddeb1222243dd
 
+  }
+  };
 $scope.deleteSubject = function(sub) {
     var confirm = $mdDialog.confirm()
           .title('Are you sure you want to delete this subject?')
