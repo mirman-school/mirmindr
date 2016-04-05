@@ -32,19 +32,14 @@ $scope.setCurrentTask= function(task)
     // If addingTask is true, make it false. Or vice versa
   };
   $scope.toggleEditingTask = function(task) {
-    if($scope.editingTask==true)
-    {
-
- $scope.editingTask=false;
-    $scope.newTask={};
-    }
-    else {
-      $scope.newTask=task;
+    if($scope.editingTask==true) {
+      $scope.editingTask=false;
+      $scope.newTask={};
+    } else {
+      $scope.newTask=angular.copy(task);
       $scope.newTask.dueDate= new Date($scope.newTask.dueDate);
       $scope.editingTask=true;
-
     }
-
     // If editingTask is true, make it false. Or vice versa
   };
   $scope.deleteTask = function(task) {
@@ -87,10 +82,10 @@ $scope.setCurrentTask= function(task)
 
   $scope.showActionToast = function(msg) {
     var toast = $mdToast.simple()
-          .textContent(msg)
-          .action('OK')
-          .highlightAction(false)
-          .position("top");
+      .textContent(msg)
+      .action('OK')
+      .highlightAction(false)
+      .position("top");
     $mdToast.show(toast);
   };
 
@@ -115,38 +110,31 @@ $scope.setCurrentTask= function(task)
     $scope.authenticated = false;
   };
 
-$scope.resetPassword = function() {
-  ref.resetPassword({
-    email: $scope.user.email
-  }, function(error) {
-    if (error === null) {
-      $scope.showActionToast("Reset Email Sent!")
-    } else {
-      $scope.showActionToast("Reset Email Not Sent!")
-    }
-
-  }
-)}
+  $scope.resetPassword = function() {
+    ref.resetPassword({
+      email: $scope.user.email
+    }, function(error) {
+      if (error === null) {
+        $scope.showActionToast("Reset Email Sent!")
+      } else {
+        $scope.showActionToast("Reset Email Not Sent!")
+      }
+    });
+  };
 
   $scope.addTask = function(form) {
     if(form.$valid) {
-
-
           $scope.newTask.dueDate = $scope.newTask.dueDate.getTime();
           $scope.newTask.done=$scope.newTask.done || false;
-      if($scope.editingTask)
-      {
-
+      if($scope.editingTask) {
         $scope.tasks.$save($scope.newTask);
         $scope.editingTask=false;
-      }
-      else{
+      }  else{
         //  console.log($scope.newTask);
-
-          $scope.newTask.done = false;
-          $scope.tasks.$add($scope.newTask);
-          $scope.newTask = {};
-            $scope.addingTask = false;
+        $scope.newTask.done = false;
+        $scope.tasks.$add($scope.newTask);
+        $scope.newTask = {};
+        $scope.addingTask = false;
       }
     } else {
       $scope.showActionToast("Missing something?");
