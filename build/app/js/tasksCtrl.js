@@ -2,6 +2,7 @@ angular.module("mirmindr")
 .controller("tasksCtrl",function($scope,$mdToast,$mdDialog,$firebaseArray){
   var ref = new Firebase("https://mirmindr.firebaseio.com");
   var authData = ref.getAuth();
+  $scope.editingTask = null;
   function setUserRef(uid){
     $scope.userRef = ref.child("users").child(uid);
     $scope.authenticated = true;
@@ -22,23 +23,23 @@ angular.module("mirmindr")
     $scope.editingSubjects = $scope.editingSubjects ? false : true;
     // If editingSubjects is true, make it false. Or vice versa
   };
-$scope.setCurrentTask= function(task)
-{
 
-  $scope.CurrentTask=task;
-}
+  $scope.setCurrentTask= function(task) {
+    $scope.CurrentTask=task;
+  };
+
   $scope.toggleAddingTask = function() {
     $scope.addingTask = $scope.addingTask ? false : true;
     // If addingTask is true, make it false. Or vice versa
   };
+
   $scope.toggleEditingTask = function(task) {
-    if($scope.editingTask==true) {
-      $scope.editingTask=false;
-      $scope.newTask={};
-    } else {
-      $scope.newTask=angular.copy(task);
+    $scope.editingTask = $scope.editingTask ? null : task;
+    if($scope.editingTask) {
+      $scope.newTask = angular.copy(task);;
       $scope.newTask.dueDate= new Date($scope.newTask.dueDate);
-      $scope.editingTask=true;
+    } else {
+      $scope.newTask = {};
     }
     // If editingTask is true, make it false. Or vice versa
   };
@@ -59,11 +60,16 @@ $scope.setCurrentTask= function(task)
   $scope.toggleDone = function(task) {
     // Mark task as done
     task.done = task.done ? false: true;
-
+    var msg = task.name;
     // Alert with a toast
-    $scope.showActionToast("'" + task.name + "' has been marked as done");
+    if (task.done) {
+      msg += " is done!"
+    } else {
+      msg += " isn't done!"
+    }
+    $scope.showActionToast(msg);
 
-    // Save the tasks array
+    // Save the task
     $scope.tasks.$save(task);
   };
 
@@ -124,14 +130,13 @@ $scope.setCurrentTask= function(task)
 
   $scope.addTask = function(form) {
     if(form.$valid) {
-          $scope.newTask.dueDate = $scope.newTask.dueDate.getTime();
-          $scope.newTask.done=$scope.newTask.done || false;
+      $scope.newTask.done = $scope.newTask.done || false;
       if($scope.editingTask) {
-        $scope.tasks.$save($scope.newTask);
-        $scope.editingTask=false;
+        $scope.editingTask = $scope.newTask;
+        $scope.tasks.$save($scope.editingTask);
+        $scope.editingTask=null;
       }  else{
-        //  console.log($scope.newTask);
-        $scope.newTask.done = false;
+        $scope.newTask.dueDate = $scope.newTask.dueDate.getTime();
         $scope.tasks.$add($scope.newTask);
         $scope.newTask = {};
         $scope.addingTask = false;
