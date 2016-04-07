@@ -132,15 +132,14 @@ angular.module("mirmindr")
     if(form.$valid) {
       $scope.newTask.done = $scope.newTask.done || false;
       if($scope.editingTask) {
-        $scope.editingTask = $scope.newTask;
-        $scope.tasks.$save($scope.editingTask);
+        $scope.tasks.$remove($scope.editingTask);
         $scope.editingTask=null;
       }  else{
-        $scope.newTask.dueDate = $scope.newTask.dueDate.getTime();
-        $scope.tasks.$add($scope.newTask);
-        $scope.newTask = {};
         $scope.addingTask = false;
       }
+      $scope.newTask.dueDate = $scope.newTask.dueDate.getTime();
+      $scope.tasks.$add($scope.newTask);
+      $scope.newTask = {};
     } else {
       $scope.showActionToast("Missing something?");
     }
