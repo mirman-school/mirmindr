@@ -10,7 +10,6 @@ angular.module("mirmindr")
       $scope.newSub = {};
     }
   };
-});
 
 
   if($scope.editingSubjects)
@@ -89,4 +88,5 @@ $scope.editSubject = function(sub){
       $scope.showActionToast("Missing Something?");
     }
   };
+}
 });
