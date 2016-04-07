@@ -2,16 +2,25 @@
 Homework reminder app for Mirman School students.
 
 ## Table of Contents
-- [MirMindr ](#mirmindr-img-srchttpwwwk12academicscomsitesdefaultfilesmirmanwallgateswebjpg-width100)
+- [MirMindr](#mirmindr-img-srchttpwwwk12academicscomsitesdefaultfilesmirmanwallgateswebjpg-width100)
 	- [Table of Contents](#table-of-contents)
 	- [Teams](#teams)
-	- [Project Overview](#project-overview)
-		- [Features](#features)
+- [The Manual](#the-manual)
+	- [Introduction](#introduction)
 		- [Value Proposition](#value-proposition)
-	- [Docs](#docs)
+		- [Overview](#overview)
+	- [License](#license)
+	- [Usage](#usage)
+		- [Accessing the Extension](#accessing-the-extension)
+			- [Download](#download)
+			- [Access](#access)
+		- [Logging in](#logging in)
+			- [Signing Up](#signing-up)
+			- [Log in](#log in)
+		- [Navigation – How to make a task](#navigation-–-how-to-make-a-task)
 
 ## Teams
-**Dox**:
+**Docs**:
 1. Benjamin Volokh
 2. Miles Rovenger
 
@@ -73,3 +82,15 @@ To download the MirMindr Extension, simply go to the Chrome Web Store (https://c
 
 #### Access
 Once the MirMindr Extension has been downloaded, you can access it on the Google Toolbar.
+
+### Logging in
+
+#### Signing Up
+If this is the first time you are using the MirMindr Extension or you want to create another account, click on the Sign Up.<br><br><img src="http://imageshack.com/a/img924/2616/ZrWLpO.png">.<br><br>Once you get to the following picture (as an extension window),<br><br><img src="http://imageshack.com/a/img924/9696/SGLaxz.png"><br><br>enter in your email, password, and then confirm your password. The extension will then take you back to the home screen where you can log in (follow the instructions below). However, if your email has already been used to create an account, you will receive an error saying ``"Error: The specified email address is already in use"``. <img src="http://imageshack.com/a/img923/3954/1pSunN.png"> Press `OK`, and you will be taken back to the sign-in screen (if the OK button is not pressed, the message will go away after 4 seconds). Then, enter in a new email in the correct input box. Then, press the sign up button and you will be taken to the log in screen. If the password and the confirm password inputs don't match
+
+#### Log in
+Once you are able to access the MirMindr Extension, MirMindr requires logging in.<br><br><img src="http://i.imgur.com/8uouyPR.png"><br><br>Mirmindr fetches your email (only to use as an username you will never forget), but if the email is incorrect or not the email you want to log in with, change the email in the upper, email box. In the box that says password, enter in your password. Then press log in. If you get an error saying<br>`"Error: The specified password"`.<br><img src="http://imageshack.com/a/img923/5153/9u7FzT.png"> Press `OK`, and you will be taken back to the log in screen (if the OK button is not pressed, the message will go away after 4 seconds). Then, re-enter the <i>correct</i> password. If you have done everything correctly, nice job! Welcome to MirMindr! You will be taken to the MirMindr homework extension.
+
+### Navigation – How to make a task
+The MirMindr extension has so many features, its overwhelming! By now you should be at the following screen:
+<br><br><img src="http://i.imgur.com/1JJ7ZHc.png"><br><br>The <img src="http://i.imgur.com/tYM3xgg.png">button enables you to log out of the extension. Once you do, to log back in, follow the steps in the section above. The <img src="http://i.imgur.com/4RWhax2.png">allows you to make a new task and if it is needed, a new subject. If you press the <img src="http://i.imgur.com/4RWhax2.png"> button, you will be taken to the following screen:<br><br><img src="http://i.imgur.com/lHLh2OS.png"><br><br>The top input box is where you write the name of the task. Whether it be <i>English II Romeo and Juliet Test</i> or <i>US4 Musical Try-outs</i>, the name goes in the name input box. The next box, the subject box, is not a text input box. When you click on the box, a drop-down will drop down. At first, it will be blank. 

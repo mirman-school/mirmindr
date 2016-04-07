@@ -1,18 +1,23 @@
-div(layout="row" ng-show="editingSubjects" ng-controller="subjectsCtrl" class="popup" id="edit-subjects")
+div(layout="row" ng-show="subjectsUp" ng-controller="subjectsCtrl" class="popup" id="edit-subjects")
   div(layout="column")
     div(class="header")
+      md-button(id="subjects-back-btn" class="md-fab md-mini md-button md-primary" aria-label="Back" ng-click="toggleSubjects()")
+        md-icon arrow_back
       h3 Subjects
     md-list
-      md-list-item(ng-repeat="sub in subjects" class="subject-item")
-        md-list-item-text 
+      md-list-item(ng-repeat="sub in subjects | orderBy: 'period'" class="subject-item" ng-mouseenter="setCurrentSubject(sub.$id)" ng-mouseleave="setCurrentSubject(null)")
+        div(class="md-list-item-text") 
           {{sub.name}}, Period: {{sub.period}}
-          md-button(type="submit" class="md-fab md-mini md-warn" value="Delete Subject" ng-click="deleteSubject(sub)") 
-            md-icon delete
-          md-button(type="submit" class="md-fab md-mini md-accent" value="Edit Subject" ng-click="addSub(subForm)")
-            md-icon edit
+          span(class="md-secondary")
+            md-button(type="button" class="md-fab md-mini md-accent task-btn" value="Edit Subject" ng-click="toggleEditingSubject(sub)" ng-show="currentSubject==sub.$id")
+              md-icon edit
+            md-button(type="button" class="md-fab md-mini md-warn task-btn" value="Delete Subject" ng-click="deleteSubject(sub)" ng-show="currentSubject==sub.$id") 
+              md-icon delete
     div(id="new-sub")
       div(class="header")
-        h3 New Subject
+        h3
+          span(ng-if="editingSubject") {{newSub.name}}
+          span(ng-if="!editingSubject") New Subject
       form(name="subForm" ng-submit="addSub(subForm)" novalidate)
         div(flex="50")
           md-input-container
@@ -22,8 +27,10 @@ div(layout="row" ng-show="editingSubjects" ng-controller="subjectsCtrl" class="p
           md-input-container
             label Period #
             input(type="number" min="1" ng-model="newSub.period" required)
-        md-button(type="button" class="md-raised md-warn md-small" ng-click="toggleSubjects()") Cancel
-        md-button(type="submit" class="md-raised md-primary md-small" value="Add Subject") Add
+        md-button(type="button" class="md-raised md-warn md-small" ng-click="toggleEditingSubject(null)") Cancel
+        md-button(type="submit" class="md-raised md-primary md-small" value="Add Subject") 
+          span(ng-if="editingSubject") Update
+          span(ng-if="!editingSubject") Add
         
         
 
