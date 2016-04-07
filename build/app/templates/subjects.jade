@@ -1,6 +1,8 @@
-div(layout="row" ng-show="editingSubjects" ng-controller="subjectsCtrl" class="popup" id="edit-subjects")
+div(layout="row" ng-show="subjectsUp" ng-controller="subjectsCtrl" class="popup" id="edit-subjects")
   div(layout="column")
     div(class="header")
+      md-button(id="subjects-back-btn" class="md-fab md-mini md-button md-primary" aria-label="Back" ng-click="toggleSubjects()")
+        md-icon arrow_back
       h3 Subjects
     md-list
       md-list-item(ng-repeat="sub in subjects" class="subject-item")
@@ -24,7 +26,7 @@ div(layout="row" ng-show="editingSubjects" ng-controller="subjectsCtrl" class="p
           md-input-container
             label Period #
             input(type="number" min="1" ng-model="newSub.period" required)
-        md-button(type="button" class="md-raised md-warn md-small" ng-click="toggleEditingSubject()") Cancel
+        md-button(type="button" class="md-raised md-warn md-small" ng-click="toggleEditingSubject(null)") Cancel
         md-button(type="submit" class="md-raised md-primary md-small" value="Add Subject") 
           span(ng-if="editingSubject") Update
           span(ng-if="!editingSubject") Add

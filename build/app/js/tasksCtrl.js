@@ -18,9 +18,18 @@ angular.module("mirmindr")
     password: ""
   };
 
+  $scope.updateTaskIds = function(oldId, newId) {
+    for (var t in $scope.tasks) {
+      var task = $scope.tasks[t];
+      if (task.subject == oldId) {
+        task.subject = newId;
+        $scope.tasks.$save(task);
+      }
+    }
+  };
 
   $scope.toggleSubjects = function() {
-    $scope.editingSubjects = $scope.editingSubjects ? false : true;
+    $scope.subjectsUp = $scope.subjectsUp ? false : true;
     // If editingSubjects is true, make it false. Or vice versa
   };
 

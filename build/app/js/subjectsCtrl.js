@@ -1,16 +1,13 @@
 angular.module("mirmindr")
 .controller("subjectsCtrl", function($rootScope, $scope, $mdDialog){
   $scope.newSub = {};
-
+  $scope.editingSubject = null;
   $scope.toggleEditingSubject = function(sub){
-    if($scope.editingSubject===true) {
-      $scope.editingSubject=false;
-      $scope.newSub={};
+    $scope.editingSubject = $scope.editingSubject ? null : sub;
+    if($scope.editingSubject) {
+      $scope.newSub = angular.copy(sub);;
     } else {
-      $scope.newSub = angular.copy(sub);
-      $scope.editingSubject=true;
-      console.log($scope.sub);
-
+      $scope.newSub = {};
     }
   };
 
@@ -28,12 +25,16 @@ angular.module("mirmindr")
   $scope.addSub = function(form) {
     if(form.$valid) {
       // console.log($scope.newSub);
-      if($scope.editingSubject) {
-        $scope.subjects.$save($scope.newSub);
-        $scope.editingSubject = false;
-      } else {
-        $scope.tasks.$add($scope.newSub);
-      }
+      $scope.subjects.$add($scope.newSub)
+      .then(function(ref) {
+        console.log(ref.path.o[3]);
+        var newId = ref.path.o[3];
+        if($scope.editingSubject) {
+          $scope.updateTaskIds($scope.editingSubject.$id,newId);
+          $scope.subjects.$remove($scope.editingSubject);
+          $scope.editingSubject = null;
+        }
+      })
         $scope.newSub = {};
     } else {
       $scope.showActionToast("Missing Something?");
