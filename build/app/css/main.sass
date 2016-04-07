@@ -14,6 +14,8 @@ html
 body
   font-size: 16px
   overflow-x: scroll
+  &::-webkit-scrollbar
+    display: none
 
 h1,h2,h3
   font-weight: 300
@@ -30,6 +32,8 @@ h3
   background-color: $header-color
   padding: 3px 3px 3px 10px
   width: $app-width
+  h3
+    display: inline-block
 
 .subtitle
   font-style: italic
@@ -57,7 +61,7 @@ h3
   top: 85%
   right: 0%
 #logout-btn
-  position: fixed
+  position: absolute
   top: 3%
   right: 0%
 .task-btn

@@ -22,4 +22,6 @@ div(layout="row" ng-show="addingTask || editingTask" class="popup" id="new-task-
       
       md-button(type="button" ng-if="addingTask" ng-click="toggleAddingTask()" class="md-raised md-warn confirm" value="Cancel") Cancel
       md-button(type="button" ng-if="editingTask" ng-click="toggleEditingTask(newTask)" class="md-raised md-warn confirm" value="Cancel") Cancel
-      md-button(type="submit" class="md-raised md-primary confirm" value="Add Task") Add Task
+      md-button(type="submit" class="md-raised md-primary confirm" value="Add Task")
+        span(ng-if="editingTask") Update
+        span(ng-if="!editingTask") Add
