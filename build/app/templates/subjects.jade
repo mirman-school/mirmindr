@@ -5,7 +5,7 @@ div(layout="row" ng-show="subjectsUp" ng-controller="subjectsCtrl" class="popup"
         md-icon arrow_back
       h3 Subjects
     md-list
-      md-list-item(ng-repeat="sub in subjects" class="subject-item" ng-mouseenter="setCurrentSubject(sub.$id)" ng-mouseleave="setCurrentSubject(null)")
+      md-list-item(ng-repeat="sub in subjects | orderBy: 'period'" class="subject-item" ng-mouseenter="setCurrentSubject(sub.$id)" ng-mouseleave="setCurrentSubject(null)")
         div(class="md-list-item-text") 
           {{sub.name}}, Period: {{sub.period}}
           span(class="md-secondary")
