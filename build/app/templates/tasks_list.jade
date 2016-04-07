@@ -5,7 +5,7 @@ div(id="task-list" ng-show="authenticated")
       div(class="md-list-item-text" layout="column")
         p 
           {{task.dueDate | date: "M/dd/yy"}} : {{task.name}}
-      span(class='btn-container')
+      span(class='md-secondary')
         md-button(ng-class="{'md-accent': task.done, 'md-primary': !task.done,}" class="md-mini md-fab task-btn" ng-show="currentTask==task.$id" ng-click="toggleDone(task)")
           md-icon done
         md-button(ng-show="currentTask==task.$id" class="md-accent md-mini md-fab task-btn" ng-click="toggleEditingTask(task)")
