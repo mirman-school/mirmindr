@@ -11,6 +11,10 @@ angular.module("mirmindr")
     }
   };
 
+  $scope.setCurrentSubject = function(sub) {
+    $scope.currentSubject = sub;
+  };
+
   $scope.deleteSubject = function(sub) {
     var confirm = $mdDialog.confirm()
       .title('Are you sure you want to delete this subject?')

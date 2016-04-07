@@ -34,7 +34,7 @@ angular.module("mirmindr")
   };
 
   $scope.setCurrentTask= function(task) {
-    $scope.CurrentTask=task;
+    $scope.currentTask=task;
   };
 
   $scope.toggleAddingTask = function() {

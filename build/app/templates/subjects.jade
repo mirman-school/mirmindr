@@ -5,13 +5,14 @@ div(layout="row" ng-show="subjectsUp" ng-controller="subjectsCtrl" class="popup"
         md-icon arrow_back
       h3 Subjects
     md-list
-      md-list-item(ng-repeat="sub in subjects" class="subject-item")
+      md-list-item(ng-repeat="sub in subjects" class="subject-item" ng-mouseenter="setCurrentSubject(sub.$id)" ng-mouseleave="setCurrentSubject(null)")
         md-list-item-text 
           {{sub.name}}, Period: {{sub.period}}
-          md-button(type="submit" class="md-fab md-mini md-warn" value="Delete Subject" ng-click="deleteSubject(sub)") 
-            md-icon delete
-          md-button(type="submit" class="md-fab md-mini md-accent" value="Edit Subject" ng-click="toggleEditingSubject(sub)")
-            md-icon edit
+          span(class="btn-container")
+            md-button(type="submit" class="md-fab md-mini md-accent task-btn" value="Edit Subject" ng-click="toggleEditingSubject(sub)" ng-show="currentSubject==sub.$id")
+              md-icon edit
+            md-button(type="submit" class="md-fab md-mini md-warn task-btn" value="Delete Subject" ng-click="deleteSubject(sub)" ng-show="currentSubject==sub.$id") 
+              md-icon delete
     div(id="new-sub")
       div(class="header")
         h3
