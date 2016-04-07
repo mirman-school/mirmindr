@@ -5,11 +5,12 @@ angular.module("mirmindr")
   $scope.toggleEditingSubject = function(sub){
     $scope.editingSubject = $scope.editingSubject ? null : sub;
     if($scope.editingSubject) {
-      $scope.newSub = angular.copy(sub);;
+      $scope.newSub = angular.copy(sub);
     } else {
       $scope.newSub = {};
     }
   };
+});
 
 
   if($scope.editingSubjects)
