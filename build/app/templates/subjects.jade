@@ -5,13 +5,8 @@ div(layout="row" ng-show="subjectsUp" ng-controller="subjectsCtrl" class="popup"
         md-icon arrow_back
       h3 Subjects
     md-list
-<<<<<<< HEAD
-      md-list-item(class="subject-item" ng-repeat="sub in subjects | orderBy: '+period'")
-        md-list-item-text 
-=======
       md-list-item(ng-repeat="sub in subjects | orderBy: 'period'" class="subject-item" ng-mouseenter="setCurrentSubject(sub.$id)" ng-mouseleave="setCurrentSubject(null)")
         div(class="md-list-item-text") 
->>>>>>> master
           {{sub.name}}, Period: {{sub.period}}
           span(class="md-secondary")
             md-button(type="button" class="md-fab md-mini md-accent task-btn" value="Edit Subject" ng-click="toggleEditingSubject(sub)" ng-show="currentSubject==sub.$id")
