@@ -18,6 +18,23 @@ angular.module("mirmindr")
     password: ""
   };
 
+  $scope.isOverdue = function(task) {
+    // if task.done return false;
+    return false;
+  };
+
+  $scope.getOverdueTasks = function() {
+    // Check all tasks for overdue status.
+    // Return count of all overdue tasks
+    return 0;
+  };
+
+  $scope.updateBadge = function() {
+    chrome.browserAction.setBadgeText({
+      text:$scope.getOverdueTasks().toString()
+    });
+  };
+
   $scope.updateTaskIds = function(oldId, newId) {
     for (var t in $scope.tasks) {
       var task = $scope.tasks[t];
@@ -45,13 +62,14 @@ angular.module("mirmindr")
   $scope.toggleEditingTask = function(task) {
     $scope.editingTask = $scope.editingTask ? null : task;
     if($scope.editingTask) {
-      $scope.newTask = angular.copy(task);;
+      $scope.newTask = angular.copy(task);
       $scope.newTask.dueDate= new Date($scope.newTask.dueDate);
     } else {
       $scope.newTask = {};
     }
     // If editingTask is true, make it false. Or vice versa
   };
+
   $scope.deleteTask = function(task) {
     // Remove task from $scope.tasks
       var confirm = $mdDialog.confirm()
@@ -80,11 +98,10 @@ angular.module("mirmindr")
 
     // Save the task
     $scope.tasks.$save(task);
+    $scope.updateBadge();
   };
 
-  $scope.isOverdue = function(task) {
-    // Return true if the task's dueDate is older than now.
-  };
+
 
   $scope.newTask = {};
   chrome.identity.getProfileUserInfo(function(data){
@@ -94,6 +111,12 @@ angular.module("mirmindr")
       $scope.$apply();
     }
   });
+
+  if($scope.tasks){
+    $scope.tasks.$loaded(function(){
+      $scope.updateBadge();
+    });
+  }
 
   $scope.showActionToast = function(msg) {
     var toast = $mdToast.simple()
@@ -149,6 +172,7 @@ angular.module("mirmindr")
       $scope.newTask.dueDate = $scope.newTask.dueDate.getTime();
       $scope.tasks.$add($scope.newTask);
       $scope.newTask = {};
+      $scope.updateBadge();
     } else {
       $scope.showActionToast("Missing something?");
     }
