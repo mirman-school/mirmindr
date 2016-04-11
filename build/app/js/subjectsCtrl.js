@@ -11,7 +11,6 @@ angular.module("mirmindr")
     }
   };
 
-
   if($scope.editingSubjects)
 {
 $scope.subs.$save($scope.newSub);
@@ -56,7 +55,6 @@ $scope.editSubject = function(sub){
   }
   $scope.setCurrentSubject = function(sub) {
     $scope.currentSubject = sub;
-
   };
 
   $scope.deleteSubject = function(sub) {
