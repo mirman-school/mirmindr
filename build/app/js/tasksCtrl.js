@@ -100,14 +100,9 @@ angular.module("mirmindr")
     $scope.tasks.$save(task);
     $scope.updateBadge();
   };
-
-<<<<<<< HEAD
   $scope.isOverdue = function(task) {
     // Return true if the task's dueDate is older than now.
   };
-=======
-
->>>>>>> master
 
   $scope.newTask = {};
   chrome.identity.getProfileUserInfo(function(data){
@@ -178,10 +173,7 @@ angular.module("mirmindr")
       $scope.newTask.dueDate = $scope.newTask.dueDate.getTime();
       $scope.tasks.$add($scope.newTask);
       $scope.newTask = {};
-<<<<<<< HEAD
-=======
       $scope.updateBadge();
->>>>>>> master
     } else {
       $scope.showActionToast("Missing something?");
     }
