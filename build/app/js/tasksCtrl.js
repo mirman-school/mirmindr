@@ -17,10 +17,9 @@ angular.module("mirmindr")
     email: "",
     password: ""
   };
-
   $scope.isOverdue = function(task) {
     // if task.done return false;
-    return false;
+    return task.dueDate < Date.now() && ! task.done;
   };
 
   $scope.getOverdueTasks = function() {
@@ -101,8 +100,9 @@ angular.module("mirmindr")
     $scope.tasks.$save(task);
     $scope.updateBadge();
   };
-
-
+  $scope.isOverdue = function(task) {
+    // Return true if the task's dueDate is older than now.
+  };
 
   $scope.newTask = {};
   chrome.identity.getProfileUserInfo(function(data){
