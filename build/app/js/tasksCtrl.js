@@ -25,7 +25,8 @@ angular.module("mirmindr")
 
   $scope.getOverdueTasks = function() {
     // Check all tasks for overdue status.
-    // Return count of all overdue tasks
+    // Return count of all overdue tasks.
+    // So the badge clears, if the count is 0, should return an empty string.
     return 0;
   };
 
