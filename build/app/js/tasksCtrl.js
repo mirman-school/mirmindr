@@ -126,6 +126,15 @@ angular.module("mirmindr")
     $mdToast.show(toast);
   };
 
+  $scope.showProfile = function() {
+    $mdDialog.show(
+      $mdDialog.confirm()
+        .textContent("Need to implement a profile")
+        .ok("Aight cool")
+        .cancel("Dang")
+    );
+  };
+
   $scope.login = function(form) {
     if (form.$valid) {
       ref.authWithPassword({
