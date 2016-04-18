@@ -20,7 +20,7 @@ angular.module("mirmindr")
 
   $scope.isOverdue = function(task) {
     // if task.done return false;
-    return false;
+    return task.dueDate < Date.now() && ! task.done;
   };
 
   $scope.getOverdueTasks = function() {
