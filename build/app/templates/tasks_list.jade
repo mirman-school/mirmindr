@@ -14,5 +14,7 @@ div(id="task-list" ng-show="authenticated")
           md-icon delete
   md-button(id="new-task" class="md-fab md-small md-button md-primary" aria-label="New task" ng-click="toggleAddingTask()")
     md-icon add
+  md-button(id="profile" class="md-fab md-mini md-button md-primary" aria-label="Profile" ng-click="showProfile()")
+    md-icon person
   md-button(id="logout-btn" class="md-fab md-mini md-button md-primary" aria-label="Log Out" ng-click="logout()")
     md-icon exit_to_app
