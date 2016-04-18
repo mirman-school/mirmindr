@@ -1,5 +1,5 @@
 angular.module("mirmindr")
-.controller("tasksCtrl",function($scope,$mdToast,$mdDialog,$firebaseArray){
+.controller("tasksCtrl",function($scope,$mdToast,$mdDialog,$firebaseObject,$firebaseArray){
   var ref = new Firebase("https://mirmindr.firebaseio.com");
   var authData = ref.getAuth();
   $scope.editingTask = null;
@@ -103,8 +103,6 @@ angular.module("mirmindr")
     $scope.updateBadge();
   };
 
-
-
   $scope.newTask = {};
   chrome.identity.getProfileUserInfo(function(data){
     if(data.email) {
@@ -127,6 +125,15 @@ angular.module("mirmindr")
       .highlightAction(false)
       .position("top");
     $mdToast.show(toast);
+  };
+
+  $scope.showProfile = function() {
+    $mdDialog.show(
+      $mdDialog.confirm()
+        .textContent("Need to implement a profile")
+        .ok("Aight cool")
+        .cancel("Dang")
+    );
   };
 
   $scope.login = function(form) {
@@ -155,9 +162,9 @@ angular.module("mirmindr")
       email: $scope.user.email
     }, function(error) {
       if (error === null) {
-        $scope.showActionToast("Reset Email Sent!")
+        $scope.showActionToast("Reset Email Sent!");
       } else {
-        $scope.showActionToast("Reset Email Not Sent!")
+        $scope.showActionToast("Reset Email Not Sent!");
       }
     });
   };
