@@ -127,9 +127,10 @@ angular.module("mirmindr")
 
   $scope.showProfile = function() {
     $mdDialog.show({
-      templateUrl:"app/templates/profile.jade",
+      templateUrl:"app/templates/profile.html",
       clickOutsideToClose:true,
-      fullscreen:false
+      fullscreen:false,
+      scope: $scope.$new()
     });
   };
 
