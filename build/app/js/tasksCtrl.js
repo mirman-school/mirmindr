@@ -126,12 +126,11 @@ angular.module("mirmindr")
   };
 
   $scope.showProfile = function() {
-    $mdDialog.show(
-      $mdDialog.confirm()
-        .textContent("Need to implement a profile")
-        .ok("Aight cool")
-        .cancel("Dang")
-    );
+    $mdDialog.show({
+      templateUrl:"app/templates/profile.jade",
+      clickOutsideToClose:true,
+      fullscreen:false
+    });
   };
 
   $scope.login = function(form) {
