@@ -27,7 +27,6 @@ angular.module("mirmindr")
     // Check all tasks for overdue status.
     // Return count of all overdue tasks.
     // So the badge clears, if the count is 0, should return an empty string.
-    return 0;
   };
 
   $scope.updateBadge = function() {
@@ -127,12 +126,12 @@ angular.module("mirmindr")
   };
 
   $scope.showProfile = function() {
-    $mdDialog.show(
-      $mdDialog.confirm()
-        .textContent("Need to implement a profile")
-        .ok("Aight cool")
-        .cancel("Dang")
-    );
+    $mdDialog.show({
+      templateUrl:"app/templates/profile.html",
+      clickOutsideToClose:true,
+      fullscreen:false,
+      scope: $scope.$new()
+    });
   };
 
   $scope.login = function(form) {
