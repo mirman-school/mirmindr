@@ -24,6 +24,18 @@ angular.module("mirmindr")
   };
 
   $scope.getOverdueTasks = function() {
+    var overdue = 0;
+    for(t in $scope.tasks) {
+      var task = $scope.tasks[t];
+      if($scope.isOverdue(task)) {
+        overdue ++;
+      }
+    }
+    overdue = overdue - 1;
+    if(overdue == 0) {
+      return "";
+    }
+    return overdue;
     // Check all tasks for overdue status.
     // Return count of all overdue tasks.
     // So the badge clears, if the count is 0, should return an empty string.
@@ -72,116 +84,118 @@ angular.module("mirmindr")
 
   $scope.deleteTask = function(task) {
     // Remove task from $scope.tasks
-      var confirm = $mdDialog.confirm()
-            .title('Are you sure you want to delete this task?')
-            .textContent('This cannot be undone.')
-            .ok('Yes')
-            .cancel('No');
-      $mdDialog.show(confirm).then(function() {
-        $scope.tasks.$remove(task);
-        }, function() {
-        }
-      );
-  };
-
-  $scope.toggleDone = function(task) {
-    // Mark task as done
-    task.done = task.done ? false: true;
-    var msg = task.name;
-    // Alert with a toast
-    if (task.done) {
-      msg += " is done!"
-    } else {
-      msg += " isn't done!"
+    var confirm = $mdDialog.confirm()
+    .title('Are you sure you want to delete this task?')
+    .textContent('This cannot be undone.')
+    .ok('Yes')
+    .cancel('No');
+    $mdDialog.show(confirm).then(function() {
+      $scope.tasks.$remove(task);
+    }, function() {
     }
-    $scope.showActionToast(msg);
+  );
+  $scope.updateBadge();
+};
 
-    // Save the task
-    $scope.tasks.$save(task);
+$scope.toggleDone = function(task) {
+  // Mark task as done
+  task.done = task.done ? false: true;
+  var msg = task.name;
+  // Alert with a toast
+  if (task.done) {
+    msg += " is done!"
+  } else {
+    msg += " isn't done!"
+  }
+  $scope.showActionToast(msg);
+
+  // Save the task
+  $scope.tasks.$save(task);
+  $scope.updateBadge();
+};
+
+$scope.newTask = {};
+chrome.identity.getProfileUserInfo(function(data){
+  if(data.email) {
+    console.log("Email found");
+    $scope.user.email = data.email;
+    $scope.$apply();
+  }
+});
+
+if($scope.tasks){
+  $scope.tasks.$loaded(function(){
     $scope.updateBadge();
-  };
-
-  $scope.newTask = {};
-  chrome.identity.getProfileUserInfo(function(data){
-    if(data.email) {
-      console.log("Email found");
-      $scope.user.email = data.email;
-      $scope.$apply();
-    }
   });
+}
 
-  if($scope.tasks){
-    $scope.tasks.$loaded(function(){
-      $scope.updateBadge();
+$scope.showActionToast = function(msg) {
+  var toast = $mdToast.simple()
+  .textContent(msg)
+  .action('OK')
+  .highlightAction(false)
+  .position("top");
+  $mdToast.show(toast);
+};
+
+$scope.showProfile = function() {
+  $mdDialog.show({
+    templateUrl:"app/templates/profile.html",
+    clickOutsideToClose:true,
+    fullscreen:false,
+    scope: $scope.$new()
+  });
+};
+
+$scope.login = function(form) {
+  if (form.$valid) {
+    ref.authWithPassword({
+      email: $scope.user.email,
+      password: $scope.user.password
+    }, function(error, authData) {
+      if(error) {
+        $scope.showActionToast(error.toString());
+      } else {
+        setUserRef(authData.uid);
+        $scope.$apply();
+      }
     });
   }
+};
 
-  $scope.showActionToast = function(msg) {
-    var toast = $mdToast.simple()
-      .textContent(msg)
-      .action('OK')
-      .highlightAction(false)
-      .position("top");
-    $mdToast.show(toast);
-  };
+$scope.logout = function() {
+  ref.unauth();
+  $scope.authenticated = false;
+};
 
-  $scope.showProfile = function() {
-    $mdDialog.show({
-      templateUrl:"app/templates/profile.html",
-      clickOutsideToClose:true,
-      fullscreen:false,
-      scope: $scope.$new()
-    });
-  };
-
-  $scope.login = function(form) {
-    if (form.$valid) {
-      ref.authWithPassword({
-        email: $scope.user.email,
-        password: $scope.user.password
-      }, function(error, authData) {
-        if(error) {
-          $scope.showActionToast(error.toString());
-        } else {
-          setUserRef(authData.uid);
-          $scope.$apply();
-        }
-      });
-    }
-  };
-
-  $scope.logout = function() {
-    ref.unauth();
-    $scope.authenticated = false;
-  };
-
-  $scope.resetPassword = function() {
-    ref.resetPassword({
-      email: $scope.user.email
-    }, function(error) {
-      if (error === null) {
-        $scope.showActionToast("Reset Email Sent!");
-      } else {
-        $scope.showActionToast("Reset Email Not Sent!");
-      }
-    });
-  };
-
-  $scope.addTask = function(form) {
-    if(form.$valid) {
-      $scope.newTask.done = $scope.newTask.done || false;
-      if($scope.editingTask) {
-        $scope.tasks.$remove($scope.editingTask);
-        $scope.editingTask=null;
-      }  else{
-        $scope.addingTask = false;
-      }
-      $scope.newTask.dueDate = $scope.newTask.dueDate.getTime();
-      $scope.tasks.$add($scope.newTask);
-      $scope.newTask = {};
-      $scope.updateBadge();
+$scope.resetPassword = function() {
+  ref.resetPassword({
+    email: $scope.user.email
+  }, function(error) {
+    if (error === null) {
+      $scope.showActionToast("Reset Email Sent!");
     } else {
-      $scope.showActionToast("Missing something?");
+      $scope.showActionToast("Reset Email Not Sent!");
     }
-  };
+  });
+};
+
+$scope.addTask = function(form) {
+  if(form.$valid) {
+    $scope.newTask.done = $scope.newTask.done || false;
+    if($scope.editingTask) {
+      $scope.tasks.$remove($scope.editingTask);
+      $scope.editingTask=null;
+    }  else{
+      $scope.addingTask = false;
+    }
+    $scope.newTask.dueDate = $scope.newTask.dueDate.getTime();
+    $scope.tasks.$add($scope.newTask);
+    $scope.newTask = {};
+    $scope.updateBadge();
+  } else {
+    $scope.showActionToast("Missing something?");
+  }
+};
+$scope.updateBadge();
 });
