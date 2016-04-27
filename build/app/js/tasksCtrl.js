@@ -31,7 +31,6 @@ angular.module("mirmindr")
         overdue ++;
       }
     }
-    overdue = overdue - 1;
     if(overdue == 0) {
       return "";
     }
