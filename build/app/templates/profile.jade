@@ -10,6 +10,9 @@ div(layout="row")
           label Change Email
           input(name="newEmail" type="email" ng-model="user.newEmail" value="{{user.email}}")
         md-input-container
+          label Current Password
+          input(name="currentPassword" type="password" minlength="8" ng-model="user.password")
+        md-input-container
           label Change Password
           input(name="newPassword" type="password" minlength="8" ng-model="user.newPassword")
         md-input-container

@@ -183,12 +183,14 @@ $scope.resetPassword = function() {
 $scope.updateProfile = function(form) {
   if(form.$valid) {
     if($scope.user.newEmail != $scope.user.email) {
-      $scope.user.email = $scope.user.newEmail;
       $scope.authObj.$changeEmail({
-        email: $scope.user.newEmail
+        oldEmail: $scope.user.email,
+        newEmail: $scope.user.newEmail,
+        password: $scope.user.password
       }).then(function() {
         console.log("Email changed successfully");
         $scope.showActionToast("Email changed!");
+        $scope.user.email = $scope.user.newEmail;
       }).catch(function(error) {
         $scope.showActionToast("An error occurred, please try again");
         console.log("Error: ", error);
@@ -199,9 +201,11 @@ $scope.updateProfile = function(form) {
       // confirm p/ws match
       if($scope.user.newPassword == $scope.user.newPasswordConfirm) {
         $scope.authObj.$changePassword({
-          email: $scope.user.email,
-          password: $scope.user.newPassword
+          oldPassword: $scope.user.password,
+          newPassword: $scope.user.newPassword,
+          email: $scope.user.email
         }).then(function() {
+          $scope.user.password = $scope.user.newPassword;
           console.log("Password changed successfully");
           $scope.showActionToast("Password changed successfully!");
         }).catch(function(error) {
