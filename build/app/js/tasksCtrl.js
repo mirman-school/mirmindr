@@ -1,5 +1,5 @@
 angular.module("mirmindr")
-.controller("tasksCtrl",function($scope,$mdToast,$mdDialog,$firebaseObject,$firebaseArray){
+.controller("tasksCtrl",function($scope,$mdToast,$mdDialog,$firebaseAuth,$firebaseObject,$firebaseArray){
   var ref = new Firebase("https://mirmindr.firebaseio.com");
   var authData = ref.getAuth();
   $scope.editingTask = null;
@@ -8,6 +8,7 @@ angular.module("mirmindr")
     $scope.authenticated = true;
     $scope.tasks = $firebaseArray($scope.userRef.child("tasks"));
     $scope.subjects = $firebaseArray($scope.userRef.child("subjects"));
+    $scope.authObj = $firebaseAuth($scope.userRef);
   }
   if (authData) {
     console.log("Authenticated");
@@ -182,7 +183,8 @@ $scope.resetPassword = function() {
 $scope.updateProfile = function(form) {
   if(form.$valid) {
     if($scope.user.newEmail != $scope.user.email) {
-      ref.$changeEmail({
+      $scope.user.email = $scope.user.newEmail;
+      $scope.authObj.$changeEmail({
         email: $scope.user.newEmail
       }).then(function() {
         console.log("Email changed successfully");
@@ -196,7 +198,8 @@ $scope.updateProfile = function(form) {
     if($scope.user.password != $scope.user.newPassword) {
       // confirm p/ws match
       if($scope.user.newPassword == $scope.user.newPasswordConfirm) {
-        ref.$changePassword({
+        $scope.authObj.$changePassword({
+          email: $scope.user.email,
           password: $scope.user.newPassword
         }).then(function() {
           console.log("Password changed successfully");
