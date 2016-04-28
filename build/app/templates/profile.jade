@@ -8,7 +8,7 @@ div(layout="row")
         br
         md-input-container
           label Change Email
-          input(name="newEmail" type="email" ng-model="user.newEmail")
+          input(name="newEmail" type="email" ng-model="user.newEmail" value="{{user.email}}")
         md-input-container
           label Change Password
           input(name="newPassword" type="password" minlength="8" ng-model="user.newPassword")

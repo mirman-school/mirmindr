@@ -191,7 +191,6 @@ $scope.updateProfile = function(form) {
         $scope.showActionToast("An error occurred, please try again");
         console.log("Error: ", error);
       });
-
     };
     // If p/w has changed, change the p/w
     if($scope.user.password != $scope.user.newPassword) {
