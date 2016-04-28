@@ -179,6 +179,18 @@ $scope.resetPassword = function() {
   });
 };
 
+$scope.updateProfile = function() {
+  // https://www.firebase.com/docs/web/libraries/angular/api.html#angularfire-users-and-authentication-changepasswordcredentials
+  // If email has changed, change the email.
+  if($scope.newEmail != $scope.user.email) {
+
+  };
+  // If p/w has changed, change the p/w
+  if($scope.password != $scope.newPassword) {
+    // confirm p/ws match
+  }
+};
+
 $scope.addTask = function(form) {
   if(form.$valid) {
     $scope.newTask.done = $scope.newTask.done || false;
