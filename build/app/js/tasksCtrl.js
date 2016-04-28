@@ -182,12 +182,37 @@ $scope.resetPassword = function() {
 $scope.updateProfile = function() {
   // https://www.firebase.com/docs/web/libraries/angular/api.html#angularfire-users-and-authentication-changepasswordcredentials
   // If email has changed, change the email.
-  if($scope.newEmail != $scope.user.email) {
+  if($scope.user.newEmail != $scope.user.email) {
+
+    ref.$changeEmail({
+      email: $scope.user.newEmail
+    }).then(function() {
+      console.log("Email changed successfully");
+      $scope.showActionToast("Email changed!");
+    }).catch(function(error) {
+      $scope.showActionToast("An error occurred, please try again");
+      console.log("Error: ", error);
+    });
 
   };
   // If p/w has changed, change the p/w
-  if($scope.password != $scope.newPassword) {
+  if($scope.user.password != $scope.user.newPassword) {
     // confirm p/ws match
+
+    if($scope.user.newPassword == $scope.user.newPasswordConfirm) {
+      ref.$changePassword({
+        password: $scope.user.newPassword
+      }).then(function() {
+        console.log("Password changed successfully");
+        $scope.showActionToast("Password changed successfully!");
+      }).catch(function(error) {
+        console.error("Error: ", error);
+        $scope.showActionToast("An error occurred, please try again");
+      });
+    } else {
+      $scope.showActionToast("Passwords don't match!");
+    }
+
   }
 };
 
