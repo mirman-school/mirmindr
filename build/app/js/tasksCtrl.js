@@ -175,6 +175,7 @@ $scope.resetPassword = function() {
       $scope.showActionToast("Reset Email Sent!");
     } else {
       $scope.showActionToast("Reset Email Not Sent!");
+>>>>>>> master
     }
   });
 };

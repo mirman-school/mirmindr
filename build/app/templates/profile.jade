@@ -1,2 +1,19 @@
-md-subheader
-  h2 Profile
+div(layout="row")
+  div(layout="column")
+    md-content(layout-padding)
+      form(id="edit-profile-form" name="editProfileForm" ng-submit="profile(editProfileForm)")
+        h2(id="edit-profile-info") Edit Profile Info
+        p(class="profileChangeNotice") If you don't make any changes to a field confirm changes will do nothing.
+        p(class="profileChangeNotice") You can also click outside of the window to exit.
+        br
+        md-input-container
+          label Change Email
+          input(name="newEmail" type="newEmail" ng-model="user.newEmail")
+        md-input-container
+          label Change Password
+          input(name="newPassword" type="newPassword" minlength="8" ng-model="user.newPassword")
+        md-input-container
+          label Confirm Change of Password
+          input(name="changeConfirm" type="changeConfirm" ng-model="user.changeConfirm")       
+        br
+        md-button(type="submit" class="md-raised md-primary confirm" value="Sign Up") Confirm Changes
